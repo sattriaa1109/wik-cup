@@ -1,19 +1,31 @@
-import React from "react";
-import Navbar from "./components/navbar.jsx";
-import Home from "./components/home.jsx";
-// import Kompetisi from "./components/kompetisi.jsx";
-// import Peraturan from "./components/peraturan.jsx";
-// import Footer from "./components/footer.jsx";
+import React from 'react';
+import { Routes, Route, Outlet } from 'react-router-dom';
+import Navbar from './components/navbar.jsx';
+import Home from './pages/Home.jsx';
+import Kompetisi from './pages/Kompetisi.jsx'; // Mengimpor dari path yang Anda buat
+import Maps from './components/maps.jsx'; 
 
-function App() {
+// Layout ini memastikan Navbar dan Maps ada di setiap halaman
+function Layout() {
   return (
     <>
       <Navbar />
-      <Home />
-      {/* <Kompetisi /> */}
-      {/* <Peraturan /> */}
-      {/* <Footer /> */}
+      <main>
+        <Outlet /> {/* Ini adalah tempat Home atau Kompetisi muncul */}
+      </main>
+      <Maps /> {/* Maps akan selalu muncul di bawah konten */}
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="kompetisi" element={<Kompetisi />} />
+      </Route>
+    </Routes>
   );
 }
 
