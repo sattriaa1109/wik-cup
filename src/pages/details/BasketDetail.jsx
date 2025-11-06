@@ -33,6 +33,8 @@ function BasketDetail() {
 
           <div className="detail-rules">
             
+            {/* ... (Poin A sampai M tetap sama) ... */}
+
             <h3>A. Kategori Peserta</h3>
             <ul>
               <li>Siswa <b>putra</b> tingkat SMP/Sederajat.</li>
@@ -134,26 +136,30 @@ function BasketDetail() {
               <li>Menyerahkan uang jaminan <b>Rp 1.000.000,-</b>. (Uang ini akan hangus, baik protes diterima maupun ditolak).</li>
             </ul>
             
+            {/* ✅ BAGIAN INI DIPERBAIKI (JSX) */}
             <h3>N. Sanksi & Denda</h3>
             <ul>
               <li><b>WO (Walk Out)</b>: Dinyatakan kalah, denda <b>Rp 100.000,-</b>, dan di-<i>blacklist</i> di Wikrama Cup berikutnya.</li>
               <li><b>Pemogokan/Onar</b>: Tim yang mogok atau membuat onar akan didiskualifikasi dari turnamen.</li>
-              <li><b>Perkelahian/Penganiayaan</b>:
-                <li style={{ listStyleType: 'circle', marginLeft: '20px', paddingLeft: '5px' }}>
-                  Pemain (individu): Dikeluarkan dari pertandingan (skorsing ditentukan panitia).
-                </li>
-                <li style={{ listStyleType: 'circle', marginLeft: '20px', paddingLeft: '5px' }}>
-                  Official: Didiskualifikasi (dilarang mendampingi tim selamanya).
-                </li>
-                <li style={{ listStyleType: 'circle', marginLeft: '20px', paddingLeft: '5px' }}>
-                  Massal: Salah satu atau kedua tim akan didiskualifikasi.
-                </li>
+              <li>
+                <b>Perkelahian/Penganiayaan</b>:
+                {/* Ini adalah <ul> di dalam <li> */}
+                <ul className="sub-list"> 
+                  <li>
+                    Pemain (individu): Dikeluarkan dari pertandingan (skorsing ditentukan panitia).
+                  </li>
+                  <li>
+                    Official: Didiskualifikasi (dilarang mendampingi tim selamanya).
+                  </li>
+                  <li>
+                    Massal: Salah satu atau kedua tim akan didiskualifikasi.
+                  </li>
+                </ul>
               </li>
             </ul>
             
             <h3>Kontak Panitia (FAQ)</h3>
             <ul>
-              {/* ✅ DIUBAH: Nomor Dwina diganti Satria */}
               <li><b>Satria</b>: 0831-2843-1096 (WhatsApp)</li>
               <li><b>Noer Sandy</b>: 0899-7972-996 (WhatsApp)</li>
             </ul>
@@ -193,7 +199,6 @@ function BasketDetail() {
             opacity: 0.1;
             z-index: 0;
             pointer-events: none;
-            border-radius: 50%;
         }
 
         .detail-content-wrapper {
@@ -283,7 +288,8 @@ function BasketDetail() {
           margin-bottom: 20px;
         }
 
-        .detail-rules ul li {
+        /* ✅ CSS DIUBAH: Menggunakan > agar tidak mempengaruhi sub-list */
+        .detail-rules > ul > li {
           position: relative;
           padding-left: 25px;
           margin-bottom: 12px;
@@ -292,7 +298,8 @@ function BasketDetail() {
           color: #F0F0F0;
         }
 
-        .detail-rules ul li::before {
+        /* ✅ CSS DIUBAH: Menggunakan > agar tidak mempengaruhi sub-list */
+        .detail-rules > ul > li::before {
           content: '•';
           color: #f5931c;
           font-size: 1.4rem;
@@ -306,6 +313,32 @@ function BasketDetail() {
           color: #ffffff;
           font-weight: 600;
         }
+
+        /* ✅ CSS BARU: Untuk sub-list yang rapi */
+        .detail-rules .sub-list {
+          list-style: none;
+          padding-left: 15px; /* Kasih indentasi */
+          margin-top: 10px;
+          margin-bottom: 0;
+        }
+        
+        .detail-rules .sub-list li {
+          position: relative;
+          padding-left: 20px; /* Padding untuk bullet '○' */
+          margin-bottom: 8px;
+          font-size: 0.95rem; /* Sedikit lebih kecil */
+        }
+
+        .detail-rules .sub-list li::before {
+          content: '○'; /* Bullet lingkaran kosong */
+          color: #f5931c; /* Warna oranye */
+          font-size: 1.2rem;
+          position: absolute;
+          left: 0;
+          top: 0px;
+        }
+        /* --- Akhir CSS Baru --- */
+
 
         @media (max-width: 768px) {
           .detail-section {
@@ -327,7 +360,8 @@ function BasketDetail() {
           .detail-rules h3 {
             font-size: 1.4rem;
           }
-          .detail-rules ul li {
+          /* ✅ CSS DIUBAH: Selektor utama */
+          .detail-rules > ul > li {
             font-size: 0.95rem;
           }
           .detail-watermark-icon {
