@@ -2,148 +2,299 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Kompetisi() {
+  const linkPendaftaran = "https://docs.google.com/forms/d/e/1FAIpQLSf5ApVLMORQ1lkBOekNI-82ZT0lc66GXibAGBU0_mJatFK-5Q/viewform";
+
   return (
-    <section id="kompetisi" className="kompetisi-section">
-      <h2 className="section-title">Kompetisi Kami</h2>
-      <div className="kompetisi-container">
-        <div className="kompetisi-card">
-          <div className="card-header">
-            <h3>Basket</h3>
-          </div>
-          <div className="card-body">
-            <p>Lorem ipsum dolor sit amet...</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5ApVLMORQ1lkBOekNI-82ZT0lc66GXibAGBU0_mJatFK-5Q/viewform" target="_blank" rel="noopener noreferrer" className="card-button">Daftar Sekarang</a>
-          </div>
-        </div>
-
-        <div className="kompetisi-card">
-          <div className="card-header">
-            <h3>Gitar Akustik</h3>
-          </div>
-          <div className="card-body">
-            <p>Sed ut perspiciatis unde omnis...</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5ApVLMORQ1lkBOekNI-82ZT0lc66GXibAGBU0_mJatFK-5Q/viewform" target="_blank" rel="noopener noreferrer" className="card-button">Daftar Sekarang</a>
-          </div>
-        </div>
-
-        <div className="kompetisi-card">
-          <div className="card-header">
-            <h3>Nyanyi</h3>
-          </div>
-          <div className="card-body">
-            <p>At vero eos et accusamus et iusto...</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5ApVLMORQ1lkBOekNI-82ZT0lc66GXibAGBU0_mJatFK-5Q/viewform" target="_blank" rel="noopener noreferrer" className="card-button">Daftar Sekarang</a>
-          </div>
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes gradientMove {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-
-        .kompetisi-section {
-          background: linear-gradient(-45deg, #223165, #000000, #f5931c, #f8bb28);
-          background-size: 400% 400%;
-          animation: gradientMove 15s ease infinite;
-
-          color: #ffffff;
-          /* --- PADDING DIUBAH --- */
-          padding: 80px 20px 0 20px; /* padding-bottom dihapus (jadi 0) */
-          text-align: center;
-        }
-
-        .section-title {
-          font-size: 2.8rem;
-          font-weight: 800;
-          margin-bottom: 60px;
-          
-          /* --- WARNA DIUBAH --- */
-          color: #ffffff;
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-          /* Hapus background-clip & text-fill */
-        }
-
-        .kompetisi-container {
-          display: flex;
-          justify-content: center;
-          gap: 30px;
-          flex-wrap: wrap;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .kompetisi-card {
-          background-color: #223165;
-          border-radius: 15px;
-          overflow: hidden;
-          width: 320px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .kompetisi-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 15px 40px rgba(245, 147, 28, 0.4);
-        }
-
-        .card-header {
-          background-color: #f5931c;
-          padding: 20px;
-        }
-
-        .card-header h3 {
-          color: #223165;
-          font-size: 1.8rem;
-          font-weight: 800;
-          margin: 0;
-        }
-
-        .card-body {
-          padding: 30px;
-        }
-
-        .card-body p {
-          font-size: 1rem;
-          line-height: 1.6;
-          margin-bottom: 30px;
-          color: rgba(255, 255, 255, 0.8);
-        }
-
-        .card-button {
-          display: inline-block;
-          background-color: #ffffff;
-          color: #223165;
-          text-decoration: none;
-          padding: 10px 20px;
-          border-radius: 50px;
-          font-weight: 700;
-          transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-        }
-
-        .card-button:hover {
-          background-color: #f8bb28;
-          color: #000000;
-          transform: scale(1.05);
-        }
+    <>
+      <section id="kompetisi" className="kompetisi-section">
+        <h2 className="section-title">Kompetisi Kami</h2>
         
-        @media (max-width: 768px) {
+        <img src="/shapes.png" alt="Decoration" className="kompetisi-decoration-top" />
+        <img src="/shapes.png" alt="Decoration" className="kompetisi-decoration-bottom" />
+
+        <div className="kompetisi-content-wrapper">
+          <div className="kompetisi-card-container">
+            
+            <div className="kompetisi-card">
+              <h3>Basket</h3>
+              <p>
+                Kejuaraan basket putra untuk peserta didik SMP se-Bogor raya.
+              </p>
+              <Link to="/kompetisi/basket" className="card-detail-button">
+                Lihat Detail
+              </Link>
+              <img src="/orange-stripes.png" alt="Card Decor" className="card-stripes-decor-left" />
+              <img src="/orange-stripes.png" alt="Card Decor" className="card-stripes-decor-right" />
+            </div>
+
+            <div className="kompetisi-card">
+              <h3>Kompetisi Seni</h3>
+              <p>
+                Tunjukkan bakat musik (gitar) dan vokalmu di panggung Wikrama Cup!
+              </p>
+              <Link to="/kompetisi/seni" className="card-detail-button">
+                Lihat Detail
+              </Link>
+              <img src="/orange-stripes.png" alt="Card Decor" className="card-stripes-decor-left" />
+              <img src="/orange-stripes.png" alt="Card Decor" className="card-stripes-decor-right" />
+            </div>
+            
+          </div>
+
+          <a
+            href={linkPendaftaran}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="main-daftar-button"
+          >
+            Daftar Sekarang Semua Kompetisi
+          </a>
+        </div>
+
+        <style>{`
+          @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          
+          .kompetisi-section {
+            /* ✅ DIUBAH: Gradien hanya menggunakan warna gelap */
+            background: linear-gradient(-45deg, #223165, #000000, #1a254f, #000000);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+            width: 100%;
+            margin: 0;
+            border: none;
+            padding: 80px 20px 0 20px;
+            text-align: center;
+            min-height: calc(100vh - 74px);
+            position: relative;
+            overflow: hidden;
+          }
+          
+          .kompetisi-decoration-top {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            opacity: 0.7;
+            z-index: 1;
+          }
+          .kompetisi-decoration-bottom {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            opacity: 0.7;
+            z-index: 1;
+            transform: rotate(180deg);
+          }
+
           .section-title {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            color: #f8bb28; /* ✅ DIUBAH: Judul menjadi kuning (Aksen) */
+            position: relative;
+            z-index: 2;
           }
-          .kompetisi-container {
-            flex-direction: column;
-            align-items: center;
+
+          .kompetisi-content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding-bottom: 80px;
+            position: relative;
+            z-index: 2;
           }
+          
+          .kompetisi-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+          }
+
           .kompetisi-card {
-            width: 90%;
-            max-width: 320px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px 25px;
+            width: 300px; 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
           }
-        }
-      `}</style>
-    </section>
+          
+          .kompetisi-card .card-stripes-decor-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            opacity: 0.4;
+            transform: rotate(90deg);
+          }
+          .kompetisi-card .card-stripes-decor-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            opacity: 0.4;
+            transform: rotate(-90deg);
+          }
+
+          .kompetisi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+          }
+
+          .kompetisi-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #f8bb28; /* Warna Kuning (Aksen) */
+            position: relative; z-index: 1;
+          }
+
+          .kompetisi-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #F0F0F0; /* ✅ DIUBAH: Warna netral putih solid */
+            margin-bottom: 30px;
+            flex-grow: 1;
+            position: relative; z-index: 1;
+          }
+          
+          .card-detail-button, .main-daftar-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #f5931c, #f8bb28);
+            color: #223165;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            position: relative; 
+            z-index: 1;
+          }
+
+          .card-detail-button {
+            padding: 12px 30px;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(245, 147, 28, 0.3);
+          }
+
+          .main-daftar-button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 25px rgba(245, 147, 28, 0.4);
+          }
+
+          .card-detail-button:hover {
+            background: #f8bb28;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(248, 187, 40, 0.5);
+          }
+
+          .main-daftar-button:hover {
+            background: linear-gradient(90deg, #f8bb28, #f5931c);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(248, 187, 40, 0.6);
+          }
+          
+          @media (max-width: 768px) {
+            .section-title {
+              font-size: 2.2rem;
+            }
+            .kompetisi-card-container {
+              flex-direction: column;
+              align-items: center;
+              gap: 25px;
+            }
+            .kompetisi-card {
+              width: 90%;
+              max-width: 300px;
+            }
+            .main-daftar-button {
+              padding: 12px 30px;
+              font-size: 1.1rem;
+            }
+            .kompetisi-decoration-top,
+            .kompetisi-decoration-bottom {
+                width: 60px;
+            }
+          }
+        `}</style>
+      </section>
+      
+      {/* --- KODE MAPS --- */}
+      <section id="lokasi" className="maps-section">
+        <h2 className="section-title-maps">Lokasi Kami</h2>
+        <div className="map-container">
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.0139230514087!2d106.84130407499401!3d-6.645191993349406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c89505b4c37d%3A0x307fc4a38e65fa2b!2sSMK%20Wikrama%20Bogor!5e0!3m2!1sen!2sid!4v1762262010406!5m2!1sen!2sid"
+  width="100%"
+  height="100%"
+  style={{ border: 0, borderRadius: '15px', width: '100%', height: '100%' }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+></iframe>
+        </div>
+
+        <style>{`
+          .maps-section {
+            /* ✅ DIUBAH: Gradien hanya menggunakan warna gelap */
+            background: linear-gradient(-45deg, #223165, #000000, #1a254f, #000000);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+            width: 100%;
+            margin: 0;
+            padding: 0 20px 80px 20px;
+            text-align: center;
+            border: none;
+          }
+
+          .section-title-maps {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-top: 0;
+            padding-top: 80px;
+            margin-bottom: 60px;
+            color: #f8bb28; /* ✅ DIUBAH: Judul menjadi kuning (Aksen) */
+          }
+
+          .map-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 16 / 9;
+            height: auto; 
+          }
+
+          @media (max-width: 768px) {
+            .section-title-maps {
+              font-size: 2.2rem;
+              margin-top: 0;
+              padding-top: 60px;
+              margin-bottom: 40px;
+            }
+            .map-container {
+              aspect-ratio: 4 / 3;
+            }
+          }
+        `}</style>
+      </section>
+    </>
   );
 }
 
