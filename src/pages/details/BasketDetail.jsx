@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+// Pastikan Link di-import dari react-router-dom
 import { Link } from 'react-router-dom';
 
 function BasketDetail() {
   const linkPendaftaran = "https://docs.google.com/forms/d/e/1FAIpQLSf5ApVLMORQ1lkBOekNI-82ZT0lc66GXibAGBU0_mJatFK-5Q/viewform";
+
+  // Logika untuk tombol 'Kembali ke Atas'
+  const [isVisible, setIsVisible] = useState(false);
+  const toggleVisibility = () => {
+    if (window.scrollY > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
+  }, []);
+  // --- Akhir Logika ---
 
   return (
     <>
@@ -33,6 +57,8 @@ function BasketDetail() {
 
           <div className="detail-rules">
             
+            {/* ... (Poin A s/d O tetap sama) ... */}
+
             <h3>A. KATEGORI</h3>
             <ul>
               <li>Murid putra SMP sederajat</li>
@@ -65,7 +91,7 @@ function BasketDetail() {
               <li>Surat rekomendasi dari sekolah masing-masing (bertanda tangan kepala sekolah dan berstempel sekolah asli). <b>(Di bawa saat Technical Meeting)</b></li>
               <li>Mengisi formulir pendaftaran.</li>
               <li>FC Raport semester tarakhir (sesuai tingkatan) / FC Kartu Pelajar.</li>
-              <li>Pas Foto 3x4 dua buah (satu untuk ID Card dan satu untuk formulir).</li>
+              <li>Pas Foto 3x4 dua buah (satu untuk ID Card dan satu untuk formulir). <b>(Diserahkan ketika TM)</b></li>
             </ul>
             
             <h3>F. PERATURAN UMUM</h3>
@@ -92,7 +118,7 @@ function BasketDetail() {
               <li><b>Overtime</b>: Jika imbang, tambahan waktu 5 menit.</li>
               <li><b>Toleransi Keterlambatan</b>: 10 menit dari jadwal (3x panggilan @3 menit). Tim yang tidak hadir dinyatakan kalah WO.</li>
               <li><b>Time Out</b>: Total 5 kali (2x di babak pertama, 3x di babak kedua). 1x time out hangus di 2 menit terakhir jika belum diambil.</li>
-              <li>Setiap tim WAJIB memainkan seluruh pemain minimal <b>4 menit</b> (dari Q1-Q3). Pelatih akan dikenai Technical Foul per jumlah pemain yang melanggar.</li>
+              <li>Setiap tim WAJIB memainkan seluruh pemain minimal <b>4 menit</b> (dari Q1-Q3). Pelatih akan dikenai Technical Foul per jumlah pemain yang melanggar. <b>Hukuman akan dilaksanakan pada awal quarter keempat (Q4).</b></li>
               <li>Tim harus daftar ulang 30 menit sebelum jadwal tanding.</li>
               <li>Panitia hanya memberikan P3K, penanganan lanjutan dibebankan kepada tim.</li>
               <li>Juara 1 dan 2 tahun 2024 akan menempati posisi atas dan bawah bagan.</li>
@@ -170,30 +196,28 @@ function BasketDetail() {
               >
                 Unduh Formulir Pendaftaran Atlet
               </a>
-              <a 
-                href="/surat-rekomendasi-igornas.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              
+              {/* ✅ TOMBOL INI DIPERBARUI */}
+              <Link 
+                to="/pengajuan" // Mengarah ke halaman ComingSoon
                 className="download-button"
               >
-                Surat Rekomendasi IGORNAS
-              </a>
-              <a 
-                href="/surat-rekomendasi-peserta.pdf" // Placeholder
-                target="_blank" 
-                rel="noopener noreferrer" 
+                Surat Rekomendasi IGORNAS 
+              </Link>
+              
+              <Link 
+                to="/pengajuan" // Mengarah ke halaman ComingSoon
                 className="download-button"
               >
-                Surat Rekomendasi Peserta Didik
-              </a>
-              <a 
-                href="/rekomendasi-perbasi.pdf" // Placeholder
-                target="_blank" 
-                rel="noopener noreferrer" 
+                Rekomendasi Dinas Pendidikan 
+              </Link>
+              
+              <Link 
+                to="/pengajuan" // Mengarah ke halaman ComingSoon
                 className="download-button"
               >
-                Surat Rekomendasi PERBASI
-              </a>
+                Rekomendasi PERBASI 
+              </Link>
             </div>
 
             <h3>Kontak Panitia (FAQ)</h3>
@@ -205,6 +229,13 @@ function BasketDetail() {
           
         </div>
       </section>
+
+      {/* Tombol 'Kembali ke Atas' */}
+      {isVisible && (
+        <button onClick={scrollToTop} className="back-to-top-button">
+          ↑
+        </button>
+      )}
 
       {/* --- CSS --- */}
       <style>{`
@@ -317,21 +348,19 @@ function BasketDetail() {
           text-shadow: none;
         }
         
-        /* ✅ CSS LAMPIRAN DIRAPIKAN */
         .lampiran-container {
           display: flex;
-          flex-direction: column; /* Tombol ditumpuk ke bawah */
-          align-items: flex-start; /* Tombol rata kiri */
-          gap: 15px; /* Jarak antar tombol */
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 15px;
           margin-top: 15px;
           margin-bottom: 10px;
         }
         .lampiran-container .download-button {
-          margin: 0; /* Hapus margin kanan/bawah agar rapi */
-          width: auto; /* Lebar tombol menyesuaikan teks */
+          margin: 0;
+          width: auto;
           max-width: 100%;
         }
-        /* --- Akhir Perbaikan CSS --- */
 
         .detail-title {
           font-size: 2.8rem;
@@ -415,6 +444,31 @@ function BasketDetail() {
           left: 0;
           top: 0px;
         }
+        
+        .back-to-top-button {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          background: #f5931c;
+          color: #223165;
+          border: none;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 50px;
+          text-align: center;
+          cursor: pointer;
+          z-index: 1000;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          opacity: 0.9;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .back-to-top-button:hover {
+          opacity: 1;
+          transform: scale(1.1);
+        }
 
         @media (max-width: 768px) {
           .detail-section {
@@ -442,10 +496,17 @@ function BasketDetail() {
           .detail-watermark-icon {
               width: 200px;
           }
-          /* Memastikan tombol lampiran tidak terlalu lebar di mobile */
           .lampiran-container .download-button {
             width: 100%;
             text-align: center;
+          }
+          .back-to-top-button {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 40px;
+            bottom: 20px;
+            right: 20px;
           }
         }
       `}</style>

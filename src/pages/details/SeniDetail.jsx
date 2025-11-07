@@ -1,16 +1,37 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react'; // ✅ IMPORT TAMBAHAN
 import { Link, useLocation } from 'react-router-dom';
 
 function SeniDetail() {
   const linkPendaftaran = "https://docs.google.com/forms/d/e/1FAIpQLSf5ApVLMORQ1lkBOekNI-82ZT0lc66GXibAGBU0_mJatFK-5Q/viewform";
 
-  const location = useLocation();
+  // ✅ LOGIKA UNTUK TOMBOL 'KEMBALI KE ATAS'
+  const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation(); // location sudah ada
   const refs = {
     gitar: useRef(null),
     nyanyi: useRef(null),
   };
 
+  const toggleVisibility = () => {
+    if (window.scrollY > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   useEffect(() => {
+    // Listener untuk tombol 'kembali ke atas'
+    window.addEventListener('scroll', toggleVisibility);
+    
+    // Listener untuk auto-scroll (hash)
     const hash = location.hash.substring(1); 
     if (hash && refs[hash]) {
       refs[hash].current.scrollIntoView({
@@ -20,7 +41,12 @@ function SeniDetail() {
     } else {
       window.scrollTo(0, 0);
     }
-  }, [location, refs]);
+
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
+  }, [location, refs]); // Dependensi di-update
+  // --- Akhir Logika ---
 
   return (
     <>
@@ -48,13 +74,14 @@ function SeniDetail() {
           <p className="detail-subtitle">
             Gitar Akustik Solo & Menyanyi Solo (Culture Festival)
           </p>
+          
+          {/* ... (SEMUA KONTEN REGULASI ANDA DARI A - G) ... */}
 
           {/* --- Waktu & Tempat --- */}
           <div className="detail-rules-block">
             <h2 className="detail-title-secondary">Waktu & Tempat Kegiatan</h2>
             <div className="detail-rules">
               <ul>
-                {/* ✅ JADWAL DISAMAKAN DENGAN BASKET */}
                 <li><b>Pendaftaran (Online/Offline)</b>: 8 November – 14 November 2025</li>
                 <li><b>Technical Meeting (TM)</b>: 15 November 2025 (14.00 s.d 15.30 WIB) di SMK Wikrama</li>
                 <li><b>Pelaksanaan</b>: Sabtu, 29 November 2025 (07.30 - 17.00 WIB) di SMK Wikrama</li>
@@ -172,8 +199,17 @@ function SeniDetail() {
         </div>
       </section>
 
+      {/* ✅ TOMBOL 'KEMBALI KE ATAS' (JSX) */}
+      {isVisible && (
+        <button onClick={scrollToTop} className="back-to-top-button">
+          ↑
+        </button>
+      )}
+
       {/* --- CSS --- */}
       <style>{`
+        /* ... (Semua CSS sama persis dengan BasketDetail.jsx) ... */
+        
         @keyframes gradientMove {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -362,6 +398,33 @@ function SeniDetail() {
            top: 0px;
         }
         
+        /* ✅ CSS BARU UNTUK TOMBOL 'KEMBALI KE ATAS' */
+        .back-to-top-button {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          background: #f5931c;
+          color: #223165;
+          border: none;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 50px;
+          text-align: center;
+          cursor: pointer;
+          z-index: 1000;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          opacity: 0.9;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .back-to-top-button:hover {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+        /* --- Akhir CSS Baru --- */
+        
         @media (max-width: 768px) {
           .detail-section {
             padding: 40px 10px;
@@ -390,6 +453,15 @@ function SeniDetail() {
           }
           .detail-watermark-icon {
               width: 200px;
+          }
+          /* (CSS untuk tombol back-to-top di mobile) */
+          .back-to-top-button {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 40px;
+            bottom: 20px;
+            right: 20px;
           }
         }
       `}</style>
