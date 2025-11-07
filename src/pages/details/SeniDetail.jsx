@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'; // ✅ IMPORT TAMBAHAN
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 function SeniDetail() {
   const linkPendaftaran = "https://docs.google.com/forms/d/e/1FAIpQLSf5ApVLMORQ1lkBOekNI-82ZT0lc66GXibAGBU0_mJatFK-5Q/viewform";
 
-  // ✅ LOGIKA UNTUK TOMBOL 'KEMBALI KE ATAS'
+  // --- Logika untuk Tombol 'Kembali ke Atas' & Auto-Scroll ---
   const [isVisible, setIsVisible] = useState(false);
-  const location = useLocation(); // location sudah ada
+  const location = useLocation();
   const refs = {
     gitar: useRef(null),
     nyanyi: useRef(null),
@@ -39,9 +39,11 @@ function SeniDetail() {
         block: 'start',
       });
     } else {
+      // Jika tidak ada hash, scroll ke atas saat pindah halaman
       window.scrollTo(0, 0);
     }
 
+    // Cleanup listener
     return () => {
       window.removeEventListener('scroll', toggleVisibility);
     };
@@ -75,8 +77,6 @@ function SeniDetail() {
             Gitar Akustik Solo & Menyanyi Solo (Culture Festival)
           </p>
           
-          {/* ... (SEMUA KONTEN REGULASI ANDA DARI A - G) ... */}
-
           {/* --- Waktu & Tempat --- */}
           <div className="detail-rules-block">
             <h2 className="detail-title-secondary">Waktu & Tempat Kegiatan</h2>
@@ -208,8 +208,6 @@ function SeniDetail() {
 
       {/* --- CSS --- */}
       <style>{`
-        /* ... (Semua CSS sama persis dengan BasketDetail.jsx) ... */
-        
         @keyframes gradientMove {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -454,7 +452,6 @@ function SeniDetail() {
           .detail-watermark-icon {
               width: 200px;
           }
-          /* (CSS untuk tombol back-to-top di mobile) */
           .back-to-top-button {
             width: 40px;
             height: 40px;

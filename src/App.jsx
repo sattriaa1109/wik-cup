@@ -3,17 +3,17 @@
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
-// ✅ 1. AKTIFKAN KEMBALI SEMUA IMPORT
+// ✅ 1. IMPORT SEMUA HALAMAN ANDA
 import Navbar from './components/navbar.jsx';
 import Home from './pages/Home.jsx';
 import Kompetisi from './pages/Kompetisi.jsx';
 import BasketDetail from './pages/details/BasketDetail.jsx';
 import SeniDetail from './pages/details/SeniDetail.jsx';
 
-// ✅ 2. IMPORT HALAMAN BARU
+// ✅ 2. IMPORT HALAMAN "PENGAJUAN"
 import ComingSoon from './pages/ComingSoon.jsx';
 
-// ❌ Hapus import maintenance
+// ❌ Hapus impor maintenance
 // import Maintenance from './pages/maintenance.jsx';
 
 
@@ -42,7 +42,7 @@ function App() {
           <Route path="seni" element={<SeniDetail />} />
         </Route>
         
-        {/* ✅ 5. TAMBAHKAN ROUTE UNTUK HALAMAN PENGajuan */}
+        {/* Route untuk halaman "Dalam Proses Pengajuan" */}
         <Route path="/pengajuan" element={<ComingSoon />} />
 
       </Route>

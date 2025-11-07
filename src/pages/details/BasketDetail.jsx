@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// Pastikan Link di-import dari react-router-dom
 import { Link } from 'react-router-dom';
 
 function BasketDetail() {
@@ -57,8 +56,6 @@ function BasketDetail() {
 
           <div className="detail-rules">
             
-            {/* ... (Poin A s/d O tetap sama) ... */}
-
             <h3>A. KATEGORI</h3>
             <ul>
               <li>Murid putra SMP sederajat</li>
@@ -75,6 +72,14 @@ function BasketDetail() {
             <h3>C. BIAYA PENDAFTARAN</h3>
             <ul>
               <li>Rp. 600.000,00/tim</li>
+              {/* ✅ INFORMASI BANK DITAMBAHKAN DI SINI */}
+              <li>
+                <b>Bank BJB</b>
+                <ul className="sub-list indented" style={{marginTop: '10px'}}>
+                  <li>Atas Nama: <b>Mohamad Rizal</b></li>
+                  <li>No. Rekening: <b>0149257144100</b></li>
+                </ul>
+              </li>
             </ul>
 
             <h3>D. PENGHARGAAN</h3>
@@ -196,24 +201,20 @@ function BasketDetail() {
               >
                 Unduh Formulir Pendaftaran Atlet
               </a>
-              
-              {/* ✅ TOMBOL INI DIPERBARUI */}
               <Link 
-                to="/pengajuan" // Mengarah ke halaman ComingSoon
+                to="/pengajuan"
                 className="download-button"
               >
                 Surat Rekomendasi IGORNAS 
               </Link>
-              
               <Link 
-                to="/pengajuan" // Mengarah ke halaman ComingSoon
+                to="/pengajuan"
                 className="download-button"
               >
                 Rekomendasi Dinas Pendidikan 
               </Link>
-              
               <Link 
-                to="/pengajuan" // Mengarah ke halaman ComingSoon
+                to="/pengajuan"
                 className="download-button"
               >
                 Rekomendasi PERBASI 
@@ -420,13 +421,13 @@ function BasketDetail() {
           font-weight: 600;
         }
 
+        /* ✅ CSS Sub-list (termasuk untuk bank) */
         .detail-rules .sub-list {
           list-style: none;
           padding-left: 15px;
           margin-top: 10px;
           margin-bottom: 0;
         }
-        
         .detail-rules .sub-list li {
           position: relative;
           padding-left: 20px;
@@ -435,7 +436,6 @@ function BasketDetail() {
           color: #FFFFFF;
           line-height: 1.7;
         }
-
         .detail-rules .sub-list li::before {
           content: '○';
           color: #f5931c;
@@ -444,6 +444,25 @@ function BasketDetail() {
           left: 0;
           top: 0px;
         }
+        
+        /* Style khusus untuk list rekening bank (jika diperlukan) */
+        .detail-rules .sub-list.indented > li {
+          padding-left: 25px; 
+          font-size: 1rem;
+          line-height: 1.7;
+          color: #FFFFFF;
+          margin-bottom: 12px;
+          position: relative;
+        }
+        .detail-rules .sub-list.indented > li::before {
+           content: '○';
+           color: #f5931c;
+           font-size: 1.2rem;
+           position: absolute;
+           left: 0;
+           top: 0px;
+        }
+        /* --- Akhir CSS --- */
         
         .back-to-top-button {
           position: fixed;
