@@ -62,20 +62,11 @@ function BasketDetail() {
             <ul>
               <li>Sudah membayar uang pendaftaran sebesar Rp. 600.000/tim</li>
               <li>Pada saat Technical Meeting, setiap tim harus sudah melengkapi persyaratan.</li>
-              <li>Surat rekomendasi dari sekolah masing-masing (bertanda tangan kepala sekolah dan berstempel sekolah asli).</li>
+              <li>Surat rekomendasi dari sekolah masing-masing (bertanda tangan kepala sekolah dan berstempel sekolah asli). <b>(Di bawa saat Technical Meeting)</b></li>
               <li>Mengisi formulir pendaftaran.</li>
               <li>FC Raport semester tarakhir (sesuai tingkatan) / FC Kartu Pelajar.</li>
               <li>Pas Foto 3x4 dua buah (satu untuk ID Card dan satu untuk formulir).</li>
             </ul>
-            
-            <a 
-              href="/surat-rekomendasi.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="download-button"
-            >
-              Surat Rekomendasi IGORNAS
-            </a>
             
             <h3>F. PERATURAN UMUM</h3>
             <ul>
@@ -169,11 +160,46 @@ function BasketDetail() {
               <li>Segala sesuatu yang belum tercantum akan diatur saat Technical Meeting.</li>
             </ul>
 
+            <h3>LAMPIRAN</h3>
+            <div className="lampiran-container">
+              <a 
+                href="/formulir-pendaftaran-atlet.docx" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Unduh Formulir Pendaftaran Atlet
+              </a>
+              <a 
+                href="/surat-rekomendasi-igornas.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Surat Rekomendasi IGORNAS
+              </a>
+              <a 
+                href="/surat-rekomendasi-peserta.pdf" // Placeholder
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Surat Rekomendasi Peserta Didik
+              </a>
+              <a 
+                href="/rekomendasi-perbasi.pdf" // Placeholder
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Surat Rekomendasi PERBASI
+              </a>
+            </div>
+
             <h3>Kontak Panitia (FAQ)</h3>
             <ul>
-              {/* ✅ URUTAN KONTAK DIUBAH */}
-              <li><b>Noer Sandy M. S.Pd</b>: 0899-7972-996 (WhatsApp)</li>
               <li><b>Satria</b>: 0831-2843-1096 (WhatsApp)</li>
+              <li><b>Noer Sandy M. S.Pd</b>: 0899-7972-996 (WhatsApp)</li>
             </ul>
           </div>
           
@@ -241,11 +267,11 @@ function BasketDetail() {
           font-weight: bold;
           font-size: 1rem;
           transition: all 0.3s ease;
+          text-shadow: 0 0 8px rgba(248, 187, 40, 0.5);
         }
 
         .back-button:hover {
           color: #ffffff;
-          transform: translateX(-5px);
         }
 
         .detail-register-button {
@@ -271,8 +297,7 @@ function BasketDetail() {
 
         .download-button {
           display: inline-block;
-          margin-top: 15px;
-          margin-bottom: 10px;
+          margin-right: 10px;
           padding: 10px 20px;
           border: 2px solid #f5931c;
           color: #f5931c;
@@ -282,26 +307,45 @@ function BasketDetail() {
           font-weight: bold;
           text-decoration: none;
           transition: all 0.3s ease;
+          text-shadow: 0 0 6px rgba(245, 147, 28, 0.4);
         }
         .download-button:hover {
           background: #f5931c;
           color: #223165;
           transform: scale(1.05);
           box-shadow: 0 4px 15px rgba(245, 147, 28, 0.2);
+          text-shadow: none;
         }
+        
+        /* ✅ CSS LAMPIRAN DIRAPIKAN */
+        .lampiran-container {
+          display: flex;
+          flex-direction: column; /* Tombol ditumpuk ke bawah */
+          align-items: flex-start; /* Tombol rata kiri */
+          gap: 15px; /* Jarak antar tombol */
+          margin-top: 15px;
+          margin-bottom: 10px;
+        }
+        .lampiran-container .download-button {
+          margin: 0; /* Hapus margin kanan/bawah agar rapi */
+          width: auto; /* Lebar tombol menyesuaikan teks */
+          max-width: 100%;
+        }
+        /* --- Akhir Perbaikan CSS --- */
 
         .detail-title {
           font-size: 2.8rem;
           font-weight: 800;
           margin-bottom: 10px;
           color: #f8bb28;
+          text-shadow: 0 0 10px rgba(248, 187, 40, 0.5);
         }
 
         .detail-subtitle {
           font-size: 1.2rem;
           line-height: 1.6;
           margin-bottom: 40px;
-          color: #F0F0F0;
+          color: #FFFFFF;
           border-bottom: 1px solid rgba(255, 255, 255, 0.2);
           padding-bottom: 30px;
         }
@@ -314,6 +358,7 @@ function BasketDetail() {
           color: #f5931c;
           border-left: 4px solid #f5931c;
           padding-left: 10px;
+          text-shadow: 0 0 8px rgba(245, 147, 28, 0.4);
         }
 
         .detail-rules ul {
@@ -328,7 +373,7 @@ function BasketDetail() {
           margin-bottom: 12px;
           font-size: 1rem;
           line-height: 1.7;
-          color: #F0F0F0;
+          color: #FFFFFF;
         }
 
         .detail-rules > ul > li::before {
@@ -342,7 +387,7 @@ function BasketDetail() {
         
         .detail-rules ul li b,
         .detail-rules ul li i {
-          color: #ffffff;
+          color: #FFFFFF;
           font-weight: 600;
         }
 
@@ -358,7 +403,7 @@ function BasketDetail() {
           padding-left: 20px;
           margin-bottom: 8px;
           font-size: 0.95rem;
-          color: #F0F0F0;
+          color: #FFFFFF;
           line-height: 1.7;
         }
 
@@ -396,6 +441,11 @@ function BasketDetail() {
           }
           .detail-watermark-icon {
               width: 200px;
+          }
+          /* Memastikan tombol lampiran tidak terlalu lebar di mobile */
+          .lampiran-container .download-button {
+            width: 100%;
+            text-align: center;
           }
         }
       `}</style>

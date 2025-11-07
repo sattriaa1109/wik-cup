@@ -6,12 +6,11 @@ function SeniDetail() {
 
   const location = useLocation();
   const refs = {
-    gitar: useRef(null), // Untuk auto-scroll ke Gitar
-    nyanyi: useRef(null), // Untuk auto-scroll ke Nyanyi
+    gitar: useRef(null),
+    nyanyi: useRef(null),
   };
 
   useEffect(() => {
-    // Fungsi untuk auto-scroll ke #gitar or #nyanyi
     const hash = location.hash.substring(1); 
     if (hash && refs[hash]) {
       refs[hash].current.scrollIntoView({
@@ -50,22 +49,23 @@ function SeniDetail() {
             Gitar Akustik Solo & Menyanyi Solo (Culture Festival)
           </p>
 
-          {/* --- Waktu & Tempat (Data dari prompt sebelumnya) --- */}
+          {/* --- Waktu & Tempat --- */}
           <div className="detail-rules-block">
             <h2 className="detail-title-secondary">Waktu & Tempat Kegiatan</h2>
             <div className="detail-rules">
               <ul>
-                <li><b>Pendaftaran (Online/Offline)</b>: 3 - 14 November 2025 (08.00 - 16.00 WIB)</li>
-                <li><b>Technical Meeting (TM)</b>: Sabtu, 15 November 2025 (09.00 - 12.00 WIB) di SMK Wikrama</li>
+                {/* ✅ JADWAL DISAMAKAN DENGAN BASKET */}
+                <li><b>Pendaftaran (Online/Offline)</b>: 8 November – 14 November 2025</li>
+                <li><b>Technical Meeting (TM)</b>: 15 November 2025 (14.00 s.d 15.30 WIB) di SMK Wikrama</li>
                 <li><b>Pelaksanaan</b>: Sabtu, 29 November 2025 (07.30 - 17.00 WIB) di SMK Wikrama</li>
               </ul>
             </div>
           </div>
 
-          {/* --- Penghargaan (Data dari prompt sebelumnya) --- */}
+          {/* --- Penghargaan --- */}
           <div className="detail-rules-block">
             <h2 className="detail-title-secondary">Apresiasi & Penghargaan</h2>
-            <p style={{color: '#F0F0F0', fontSize: '1rem', lineHeight: '1.7', marginBottom: '15px'}}>
+            <p style={{color: '#FFFFFF', fontSize: '1rem', lineHeight: '1.7', marginBottom: '15px'}}>
               Hadiah diberikan untuk <b>masing-masing</b> kategori (Menyanyi Solo & Gitar Akustik):
             </p>
             <div className="detail-rules">
@@ -76,8 +76,6 @@ function SeniDetail() {
               </ul>
             </div>
           </div>
-
-          {/* ✅ PERATURAN BARU DIMULAI DARI SINI */}
 
           {/* --- Persyaratan Umum --- */}
           <div className="detail-rules-block"> 
@@ -100,8 +98,8 @@ function SeniDetail() {
             <div className="detail-rules">
               <ul>
                 <li>Keputusan juri tidak dapat diganggu gugat.</li>
-                <li>Semua peserta Culture Festival WAJIB mengikuti seluruh rangkaian kegiatan sesuai ketetapan panitia.</li>
-                <li>Semua peserta WAJIB mematuhi tata tertib dan aturan yang berlaku selama kegiatan berlangsung.</li>
+                <li>Semua peserta Culture Festival WAJIB mengikuti seluruh rangkaian kegiatan.</li>
+                <li>Semua peserta WAJIB mematuhi tata tertib dan aturan yang berlaku.</li>
                 <li>Semua peserta WAJIB menggunakan ID Card selama berada di lingkungan SMK Wikrama.</li>
               </ul>
             </div>
@@ -123,7 +121,7 @@ function SeniDetail() {
                   <li>Peserta menggunakan kostum sesuai dengan tema lagu daerah gitar solo.</li>
                   <li>Aransemen musik yang digunakan adalah <b>gitar akustik</b>.</li>
                   <li>Peserta hadir 15 menit sebelum acara dimulai.</li>
-                  <li><b>Waktu penampilan maksimal 10 menit</b> untuk dua lagu (setelah check sound 5 menit).</li>
+                  <li><b>Waktu penampilan maks 10 menit</b> untuk dua lagu (setelah check sound 5 menit).</li>
                 </ul>
                 <h3 style={{marginTop: '25px'}}>Kriteria Penilaian (Gitar):</h3>
                 <ul className="sub-list indented">
@@ -140,7 +138,7 @@ function SeniDetail() {
               <div className="detail-rules">
                 <h3>b. Menyanyi Solo</h3>
                 <ul>
-                  <li>Peserta adalah siswa SMP/MTS sederajat se-Bogor Raya yang merupakan perwakilan sekolah masing-masing.</li>
+                  <li>Peserta adalah siswa SMP/MTS sederajat se-Bogor Raya.</li>
                   <li>Peserta membawakan lagu daerah khas Jawa Barat dan lagu bebas genre pop.</li>
                   <li>Peserta menggunakan kostum sesuai tema lagu daerah.</li>
                   <li><b>Musik iringan diserahkan</b> kepada panitia melalui Google Form saat registrasi.</li>
@@ -151,7 +149,7 @@ function SeniDetail() {
                 </ul>
                 <h3 style={{marginTop: '25px'}}>Aspek Penilaian (Menyanyi):</h3>
                 <ul className="sub-list indented">
-                  <li><b>Teknik Vokal:</b> Kontrol nada, pernafasan, penggunaan register vokal, ketepatan tempo, penguasaan ritme, vibrato.</li>
+                  <li><b>Teknik Vokal:</b> Kontrol nada, pernafasan, register vokal, tempo, ritme, vibrato.</li>
                   <li><b>Teknik Mic</b></li>
                   <li><b>Performance:</b> Bahasa tubuh, ekspresi, dan penghayatan.</li>
                   <li><b>Musik:</b> Kecocokan nada dan penyanyi.</li>
@@ -234,11 +232,11 @@ function SeniDetail() {
           font-weight: bold;
           font-size: 1rem;
           transition: all 0.3s ease;
+          text-shadow: 0 0 8px rgba(248, 187, 40, 0.5);
         }
 
         .back-button:hover {
           color: #ffffff;
-          transform: translateX(-5px);
         }
 
         .detail-register-button {
@@ -267,13 +265,14 @@ function SeniDetail() {
           font-weight: 800;
           margin-bottom: 10px;
           color: #f8bb28;
+          text-shadow: 0 0 10px rgba(248, 187, 40, 0.5);
         }
 
         .detail-subtitle {
           font-size: 1.2rem;
           line-height: 1.6;
           margin-bottom: 40px;
-          color: #F0F0F0;
+          color: #FFFFFF;
           border-bottom: 1px solid rgba(255, 255, 255, 0.2);
           padding-bottom: 30px;
         }
@@ -294,6 +293,7 @@ function SeniDetail() {
           font-weight: 700;
           margin-bottom: 25px;
           color: #f8bb28;
+          text-shadow: 0 0 10px rgba(248, 187, 40, 0.5);
         }
         
         .detail-rules h3 {
@@ -304,6 +304,7 @@ function SeniDetail() {
           color: #f5931c;
           border-left: 4px solid #f5931c;
           padding-left: 10px;
+          text-shadow: 0 0 8px rgba(245, 147, 28, 0.4);
         }
 
         .detail-rules ul {
@@ -318,7 +319,7 @@ function SeniDetail() {
           margin-bottom: 12px;
           font-size: 1rem;
           line-height: 1.7;
-          color: #F0F0F0;
+          color: #FFFFFF;
         }
 
         .detail-rules > ul > li::before {
@@ -332,7 +333,7 @@ function SeniDetail() {
         
         .detail-rules ul li b,
         .detail-rules ul li i {
-          color: #ffffff;
+          color: #FFFFFF;
           font-weight: 600;
         }
 
@@ -345,15 +346,15 @@ function SeniDetail() {
         
         .detail-rules .sub-list.indented > li {
           padding-left: 25px; 
-          font-size: 1rem; /* Ukuran font sama dengan list utama */
+          font-size: 1rem;
           line-height: 1.7;
-          color: #F0F0F0;
+          color: #FFFFFF;
           margin-bottom: 12px;
           position: relative;
         }
         
         .detail-rules .sub-list.indented > li::before {
-           content: '○'; /* Bullet lingkaran kosong */
+           content: '○';
            color: #f5931c;
            font-size: 1.2rem;
            position: absolute;
