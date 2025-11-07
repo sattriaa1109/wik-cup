@@ -6,11 +6,12 @@ function SeniDetail() {
 
   const location = useLocation();
   const refs = {
-    gitar: useRef(null),
-    nyanyi: useRef(null),
+    gitar: useRef(null), // Untuk auto-scroll ke Gitar
+    nyanyi: useRef(null), // Untuk auto-scroll ke Nyanyi
   };
 
   useEffect(() => {
+    // Fungsi untuk auto-scroll ke #gitar or #nyanyi
     const hash = location.hash.substring(1); 
     if (hash && refs[hash]) {
       refs[hash].current.scrollIntoView({
@@ -46,10 +47,10 @@ function SeniDetail() {
 
           <h2 className="detail-title">Kompetisi Seni</h2>
           <p className="detail-subtitle">
-            Syarat & Ketentuan Lomba Menyanyi Solo & Gitar Akustik Antar SMP
+            Gitar Akustik Solo & Menyanyi Solo (Culture Festival)
           </p>
 
-          {/* --- Waktu & Tempat --- */}
+          {/* --- Waktu & Tempat (Data dari prompt sebelumnya) --- */}
           <div className="detail-rules-block">
             <h2 className="detail-title-secondary">Waktu & Tempat Kegiatan</h2>
             <div className="detail-rules">
@@ -61,10 +62,10 @@ function SeniDetail() {
             </div>
           </div>
 
-          {/* --- Penghargaan --- */}
+          {/* --- Penghargaan (Data dari prompt sebelumnya) --- */}
           <div className="detail-rules-block">
             <h2 className="detail-title-secondary">Apresiasi & Penghargaan</h2>
-            <p style={{color: '#F0F0F0', fontSize: '1rem', lineHeight: '1.7'}}>
+            <p style={{color: '#F0F0F0', fontSize: '1rem', lineHeight: '1.7', marginBottom: '15px'}}>
               Hadiah diberikan untuk <b>masing-masing</b> kategori (Menyanyi Solo & Gitar Akustik):
             </p>
             <div className="detail-rules">
@@ -76,42 +77,84 @@ function SeniDetail() {
             </div>
           </div>
 
-          {/* --- Ketentuan Umum --- */}
+          {/* ✅ PERATURAN BARU DIMULAI DARI SINI */}
+
+          {/* --- Persyaratan Umum --- */}
           <div className="detail-rules-block"> 
-            <h2 className="detail-title-secondary">Peraturan Lomba</h2>
-            
+            <h2 className="detail-title-secondary">E. Persyaratan Umum</h2>
             <div className="detail-rules">
-              <h3>A. Ketentuan Umum</h3>
               <ul>
-                <li>Peserta merupakan siswa aktif jenjang SMP/sederajat (dibuktikan dengan kartu pelajar atau surat keterangan sekolah).</li>
-                <li>Setiap sekolah diwajibkan mengirimkan <b>minimal 1 peserta</b> untuk Menyanyi Solo dan <b>1 peserta</b> untuk Gitar Akustik.</li>
-                <li>Peserta wajib mengisi formulir pendaftaran dan menyerahkan berkas yang diminta oleh panitia sebelum batas waktu yang ditentukan.</li>
-                <li>Peserta menyetujui seluruh peraturan lomba dan bersedia mengikuti seluruh rangkaian kegiatan sesuai jadwal.</li>
-                <li>Keputusan dewan juri bersifat mutlak dan tidak dapat diganggu gugat.</li>
+                <li>Merupakan siswa aktif, dibuktikan dengan surat keterangan dari sekolah.</li>
+                <li>Mengisi formulir pendaftaran.</li>
+                <li>Melampirkan fotokopi rapor dari semester pertama hingga terakhir.</li>
+                <li>Melampirkan fotokopi kartu pelajar.</li>
+                <li>Menyerahkan pas foto ukuran 3x4 sebanyak 2 lembar.</li>
+                <li>Masuk ke dalam grup yang sudah ada di dalam Google Form.</li>
               </ul>
             </div>
           </div>
 
-          {/* --- Kategori Lomba --- */}
+          {/* --- Peraturan Umum --- */}
           <div className="detail-rules-block"> 
-            <h2 className="detail-title-secondary">B. Kategori Lomba</h2>
+            <h2 className="detail-title-secondary">F. Peraturan Umum</h2>
+            <div className="detail-rules">
+              <ul>
+                <li>Keputusan juri tidak dapat diganggu gugat.</li>
+                <li>Semua peserta Culture Festival WAJIB mengikuti seluruh rangkaian kegiatan sesuai ketetapan panitia.</li>
+                <li>Semua peserta WAJIB mematuhi tata tertib dan aturan yang berlaku selama kegiatan berlangsung.</li>
+                <li>Semua peserta WAJIB menggunakan ID Card selama berada di lingkungan SMK Wikrama.</li>
+              </ul>
+            </div>
+          </div>
 
-            <div ref={refs.nyanyi} id="nyanyi" style={{paddingTop: '10px'}}>
+          {/* --- Ketentuan Lomba --- */}
+          <div className="detail-rules-block"> 
+            <h2 className="detail-title-secondary">G. Ketentuan Lomba</h2>
+
+            {/* --- Sub-bagian Gitar --- */}
+            <div ref={refs.gitar} id="gitar" style={{paddingTop: '10px'}}>
               <div className="detail-rules">
-                <h3>Menyanyi Solo (Vokal)</h3>
+                <h3>a. Gitar Akustik Solo</h3>
                 <ul>
-                  <li>Peserta menyanyikan 1 lagu bebas (pop, daerah, atau akustik versi sendiri).</li>
-                  <li>Lagu tidak mengandung unsur SARA, kekerasan, maupun ujaran kebencian.</li>
+                  <li>Peserta <b>wajib membawa gitar akustik pribadi</b>.</li>
+                  <li>Peserta menyiapkan seluruh peralatan yang dibutuhkan saat tampil.</li>
+                  <li>Peserta memainkan alat musik gitar dengan membawakan 1 lagu daerah dan 1 lagu bebas.</li>
+                  <li>Sudah mengunggah partitur lagu pada link pendaftaran.</li>
+                  <li>Peserta menggunakan kostum sesuai dengan tema lagu daerah gitar solo.</li>
+                  <li>Aransemen musik yang digunakan adalah <b>gitar akustik</b>.</li>
+                  <li>Peserta hadir 15 menit sebelum acara dimulai.</li>
+                  <li><b>Waktu penampilan maksimal 10 menit</b> untuk dua lagu (setelah check sound 5 menit).</li>
+                </ul>
+                <h3 style={{marginTop: '25px'}}>Kriteria Penilaian (Gitar):</h3>
+                <ul className="sub-list indented">
+                  <li><b>Teknik:</b> Teknik kesulitan repertoar, Penalaan instrumen / tuning, Kemampuan dan keterampilan penguasaan lagu, Ketepatan membidik nada (pitch).</li>
+                  <li><b>Pembawaan:</b> Interpretasi, Balance, Artikulasi, Frase.</li>
+                  <li><b>Aransemen:</b> Ketepatan dalam menerapkan progresif akor (harmoni) dalam lagu, Kreativitas dalam menerapkan ide musikal.</li>
+                  <li><b>Penampilan</b></li>
                 </ul>
               </div>
             </div>
 
-            <div ref={refs.gitar} id="gitar" style={{paddingTop: '10px'}}>
+            {/* --- Sub-bagian Menyanyi --- */}
+            <div ref={refs.nyanyi} id="nyanyi" style={{paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: '30px'}}>
               <div className="detail-rules">
-                <h3>Gitar Akustik (Instrumen)</h3>
+                <h3>b. Menyanyi Solo</h3>
                 <ul>
-                  <li>Peserta menampilkan satu lagu instrumental atau versi akustik bebas.</li>
-                  <li>Gitar yang digunakan adalah gitar akustik (non-elektrik atau semi-elektrik).</li>
+                  <li>Peserta adalah siswa SMP/MTS sederajat se-Bogor Raya yang merupakan perwakilan sekolah masing-masing.</li>
+                  <li>Peserta membawakan lagu daerah khas Jawa Barat dan lagu bebas genre pop.</li>
+                  <li>Peserta menggunakan kostum sesuai tema lagu daerah.</li>
+                  <li><b>Musik iringan diserahkan</b> kepada panitia melalui Google Form saat registrasi.</li>
+                  <li><b>Durasi penampilan maksimal 10 menit.</b></li>
+                  <li>Peserta hadir 15 menit sebelum acara dimulai.</li>
+                  <li>Keputusan juri tidak dapat diganggu gugat.</li>
+                  <li>Peserta lomba untuk vokal solo.</li>
+                </ul>
+                <h3 style={{marginTop: '25px'}}>Aspek Penilaian (Menyanyi):</h3>
+                <ul className="sub-list indented">
+                  <li><b>Teknik Vokal:</b> Kontrol nada, pernafasan, penggunaan register vokal, ketepatan tempo, penguasaan ritme, vibrato.</li>
+                  <li><b>Teknik Mic</b></li>
+                  <li><b>Performance:</b> Bahasa tubuh, ekspresi, dan penghayatan.</li>
+                  <li><b>Musik:</b> Kecocokan nada dan penyanyi.</li>
                 </ul>
               </div>
             </div>
@@ -140,7 +183,6 @@ function SeniDetail() {
         }
 
         .detail-section {
-          /* ✅ DIUBAH: Gradien hanya menggunakan warna gelap */
           background: linear-gradient(-45deg, #223165, #000000, #1a254f, #000000);
           background-size: 400% 400%;
           animation: gradientMove 15s ease infinite;
@@ -187,7 +229,7 @@ function SeniDetail() {
         }
 
         .back-button {
-          color: #f8bb28; /* Warna Kuning (Aksen) */
+          color: #f8bb28;
           text-decoration: none;
           font-weight: bold;
           font-size: 1rem;
@@ -224,14 +266,14 @@ function SeniDetail() {
           font-size: 2.8rem;
           font-weight: 800;
           margin-bottom: 10px;
-          color: #f8bb28; /* Warna Kuning (Aksen) */
+          color: #f8bb28;
         }
 
         .detail-subtitle {
           font-size: 1.2rem;
           line-height: 1.6;
           margin-bottom: 40px;
-          color: #F0F0F0; /* ✅ DIUBAH: Warna netral putih solid */
+          color: #F0F0F0;
           border-bottom: 1px solid rgba(255, 255, 255, 0.2);
           padding-bottom: 30px;
         }
@@ -251,7 +293,7 @@ function SeniDetail() {
           font-size: 2.2rem;
           font-weight: 700;
           margin-bottom: 25px;
-          color: #f8bb28; /* Warna Kuning (Aksen) */
+          color: #f8bb28;
         }
         
         .detail-rules h3 {
@@ -259,7 +301,7 @@ function SeniDetail() {
           font-weight: 700;
           margin-top: 30px;
           margin-bottom: 15px;
-          color: #f5931c; /* Warna Oranye (Aksen) */
+          color: #f5931c;
           border-left: 4px solid #f5931c;
           padding-left: 10px;
         }
@@ -270,18 +312,18 @@ function SeniDetail() {
           margin-bottom: 20px;
         }
 
-        .detail-rules ul li {
+        .detail-rules > ul > li {
           position: relative;
           padding-left: 25px;
           margin-bottom: 12px;
           font-size: 1rem;
           line-height: 1.7;
-          color: #F0F0F0; /* ✅ DIUBAH: Warna netral putih solid */
+          color: #F0F0F0;
         }
 
-        .detail-rules ul li::before {
+        .detail-rules > ul > li::before {
           content: '•';
-          color: #f5931c; /* Warna Oranye (Aksen) */
+          color: #f5931c;
           font-size: 1.4rem;
           position: absolute;
           left: 0;
@@ -292,6 +334,31 @@ function SeniDetail() {
         .detail-rules ul li i {
           color: #ffffff;
           font-weight: 600;
+        }
+
+        .detail-rules .sub-list {
+          list-style: none;
+          padding-left: 15px;
+          margin-top: 10px;
+          margin-bottom: 0;
+        }
+        
+        .detail-rules .sub-list.indented > li {
+          padding-left: 25px; 
+          font-size: 1rem; /* Ukuran font sama dengan list utama */
+          line-height: 1.7;
+          color: #F0F0F0;
+          margin-bottom: 12px;
+          position: relative;
+        }
+        
+        .detail-rules .sub-list.indented > li::before {
+           content: '○'; /* Bullet lingkaran kosong */
+           color: #f5931c;
+           font-size: 1.2rem;
+           position: absolute;
+           left: 0;
+           top: 0px;
         }
         
         @media (max-width: 768px) {
@@ -317,7 +384,7 @@ function SeniDetail() {
           .detail-rules h3 {
             font-size: 1.4rem;
           }
-          .detail-rules ul li {
+          .detail-rules > ul > li {
             font-size: 0.95rem;
           }
           .detail-watermark-icon {

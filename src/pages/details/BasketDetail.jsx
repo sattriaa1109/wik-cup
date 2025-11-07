@@ -26,142 +26,154 @@ function BasketDetail() {
             </a>
           </div>
 
-          <h2 className="detail-title">Kompetisi Basket</h2>
+          <h2 className="detail-title">Regulasi Wikrama Cup 4</h2>
           <p className="detail-subtitle">
-            Kejuaraan basket putra untuk peserta didik SMP se-Bogor raya.
+            Basketball Championship Tahun 2025
           </p>
 
           <div className="detail-rules">
             
-            {/* ... (Poin A sampai M tetap sama) ... */}
+            <h3>A. KATEGORI</h3>
+            <ul>
+              <li>Murid putra SMP sederajat</li>
+            </ul>
+            
+            <h3>B. WAKTU DAN TEMPAT</h3>
+            <ul>
+              <li><b>Pendaftaran</b>: 8 November – 14 November 2025</li>
+              <li><b>Technical Meeting</b>: 15 November 2025 (14.00 s.d 15.30 WIB)</li>
+              <li><b>Pelaksanaan</b>: 22, 23 dan 29 November 2025 (07.30 - selesai)</li>
+              <li><b>Tempat</b>: Lapangan SMK Wikrama Bogor</li>
+            </ul>
+            
+            <h3>C. BIAYA PENDAFTARAN</h3>
+            <ul>
+              <li>Rp. 600.000,00/tim</li>
+            </ul>
 
-            <h3>A. Kategori Peserta</h3>
+            <h3>D. PENGHARGAAN</h3>
             <ul>
-              <li>Siswa <b>putra</b> tingkat SMP/Sederajat.</li>
-              <li>Diutamakan kelas 8 & 9 tahun ajaran <b>2025-2026</b>.</li>
+              <li><b>Juara 1</b>: Piala, Piagam dan Uang Pembinaan senilai Rp 1.500.000.00</li>
+              <li><b>Juara 2</b>: Piala, Piagam dan Uang Pembinaan senilai Rp 1.000.000.00</li>
+              <li><b>Juara 3</b>: Piala, Piagam dan Uang Pembinaan senilai Rp 500.000.00</li>
             </ul>
             
-            <h3>B. Waktu & Tempat</h3>
+            <h3>E. PERSYARATAN UMUM</h3>
             <ul>
-              <li><b>Pendaftaran (Online/Offline)</b>: 3 - 14 November 2025 (08.00 - 16.00 WIB)</li>
-              <li><b>Technical Meeting (TM)</b>: Sabtu, 15 November 2025 (09.00 - 12.00 WIB) di SMK Wikrama</li>
-              <li><b>Sesi 1</b>: Sabtu, 22 November 2025 (07.30 - 17.00 WIB) di SMK Wikrama</li>
-              <li><b>Sesi 2</b>: Minggu, 23 November 2025 (07.30 - 17.00 WIB) di SMK Wikrama</li>
-              <li><b>Sesi 3</b>: Sabtu, 29 November 2025 di SMK Wikrama</li>
+              <li>Sudah membayar uang pendaftaran sebesar Rp. 600.000/tim</li>
+              <li>Pada saat Technical Meeting, setiap tim harus sudah melengkapi persyaratan.</li>
+              <li>Surat rekomendasi dari sekolah masing-masing (bertanda tangan kepala sekolah dan berstempel sekolah asli).</li>
+              <li>Mengisi formulir pendaftaran.</li>
+              <li>FC Raport semester tarakhir (sesuai tingkatan) / FC Kartu Pelajar.</li>
+              <li>Pas Foto 3x4 dua buah (satu untuk ID Card dan satu untuk formulir).</li>
             </ul>
             
-            <h3>C. Biaya & Penghargaan</h3>
-            <ul>
-              <li><b>Biaya Daftar</b>: Rp 400.000,- per tim.</li>
-              <li><b>Juara 1</b>: Piala, Piagam, dan Uang Pembinaan Rp 1.500.000,-</li>
-              <li><b>Juara 2</b>: Piala, Piagam, dan Uang Pembinaan Rp 1.000.000,-</li>
-              <li><b>Juara 3</b>: Piala, Piagam, dan Uang Pembinaan Rp 500.000,-</li>
-            </ul>
+            <a 
+              href="/surat-rekomendasi.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="download-button"
+            >
+              Surat Rekomendasi IGORNAS
+            </a>
             
-            <h3>D. Syarat Pendaftaran (Wajib)</h3>
+            <h3>F. PERATURAN UMUM</h3>
             <ul>
-              <li>Membayar biaya pendaftaran.</li>
-              <li>Menyerahkan surat rekomendasi asli (stempel sekolah & TTD Kepala Sekolah).</li>
-              <li>Menyerahkan Pas Foto 3x4 (2 buah) untuk ID Card dan formulir.</li>
-              <li>Semua syarat harus lengkap saat Technical Meeting (TM).</li>
+              <li>Keputusan panitia tidak dapat diganggu gugat.</li>
+              <li>Panitia berhak menginterprestasikan peraturan sesuai persepsi panitia.</li>
+              <li>Semua peserta Wikrama Cup 4 WAJIB mengikuti semua proses acara dan rangkaian kegiatan.</li>
+              <li>Semua peserta WAJIB mengikuti protokol kesehatan yang sudah ditentukan.</li>
+              <li>Peserta diutamakan adalah kelas 8-9 siswa SMP sederajat tahun ajaran 2025-2026.</li>
+              <li>Semua tim WAJIB mengikuti pembukaan minimal diwakili 5 orang/tim. (Denda Rp 50.000/tim jika kurang).</li>
+              <li>Perwakilan tim WAJIB hadir saat Technical Meeting dengan pakaian rapih. Jika tidak hadir, dianggap menyetujui semua peraturan.</li>
+              <li>Peraturan permainan yang digunakan adalah peraturan <b>FIBA 2024</b>.</li>
+              <li>Semua Peserta WAJIB menggunakan ID CARD selama berada dilingkungan SMK Wikrama.</li>
+              <li>Official, pelatih, dan guru pendamping WAJIB menggunakan pakaian rapih.</li>
             </ul>
-            
-            <h3>E. Sistem & Aturan Main</h3>
+
+            <h3>G. PERATURAN KHUSUS</h3>
             <ul>
-              <li>Peraturan permainan menggunakan <b>FIBA 2022</b>.</li>
-              <li>Sistem pertandingan adalah <b>sistem gugur</b>.</li>
-              <li>Juara 1 & 2 tahun <b>2024</b> akan mendapat posisi <i>drawing</i> di bagan atas dan bawah.</li>
+              <li>Setiap tim maksimal 12 pemain dan 3 official.</li>
+              <li>Sistem pertandingan yang digunakan adalah sistem gugur.</li>
+              <li><b>Waktu Tanding (Penyisihan-Semifinal)</b>: 4x10 menit (kotor), 2 menit terakhir Q4 waktu bersih.</li>
+              <li><b>Waktu Tanding (Final)</b>: 4x10 menit (semibersih), 2 menit terakhir Q4 waktu bersih.</li>
+              <li><b>Istirahat</b>: 1 menit (antar Q1-Q2 & Q3-Q4) dan 2 menit (jeda babak).</li>
+              <li><b>Overtime</b>: Jika imbang, tambahan waktu 5 menit.</li>
+              <li><b>Toleransi Keterlambatan</b>: 10 menit dari jadwal (3x panggilan @3 menit). Tim yang tidak hadir dinyatakan kalah WO.</li>
+              <li><b>Time Out</b>: Total 5 kali (2x di babak pertama, 3x di babak kedua). 1x time out hangus di 2 menit terakhir jika belum diambil.</li>
+              <li>Setiap tim WAJIB memainkan seluruh pemain minimal <b>4 menit</b> (dari Q1-Q3). Pelatih akan dikenai Technical Foul per jumlah pemain yang melanggar.</li>
+              <li>Tim harus daftar ulang 30 menit sebelum jadwal tanding.</li>
+              <li>Panitia hanya memberikan P3K, penanganan lanjutan dibebankan kepada tim.</li>
+              <li>Juara 1 dan 2 tahun 2024 akan menempati posisi atas dan bawah bagan.</li>
             </ul>
-            
-            <h3>F. Waktu Pertandingan</h3>
+
+            <h3>H. SERAGAM DAN TATA TERTIB LAPANGAN</h3>
             <ul>
-              <li><b>Penyisihan - Semifinal</b>: 4x10 menit (kotor). 2 menit terakhir di Q4 menggunakan waktu bersih.</li>
-              <li><b>Final</b>: 4x10 menit (semibersih). 2 menit terakhir di Q4 menggunakan waktu bersih.</li>
-              <li><b>Istirahat</b>: 1 menit antar Q1-Q2 dan Q3-Q4. Jeda antar babak (Q2-Q3) selama 2 menit.</li>
-              <li><b>Overtime</b>: Jika imbang, tambahan waktu 5 menit (diulang jika masih imbang).</li>
-              <li><b>Time Out</b>: Total 5 kali (2x di Babak I, 3x di Babak II).</li>
+              <li>Setiap tim wajib membawa bola masing-masing untuk pemanasan.</li>
+              <li>Maksimal 15 orang (12 pemain, 3 official) di area bangku pemain.</li>
+              <li>Dilarang merokok di area SMK Wikrama Bogor.</li>
+              <li>Official harus mengenakan pakaian rapi dan sopan.</li>
+              <li>Wajib menyediakan 2 set kostum (Gelap & Terang). Tim disebut PERTAMA pakai TERANG, tim KEDUA pakai GELAP.</li>
+              <li>Setiap pemain harus memasukan kostum ke dalam celana.</li>
+              <li>Dilarang menggunakan aksesoris tubuh (anting, kalung, cincin, dll).</li>
+              <li>Aksesoris (Sleeve, Deker, Headband, dll) WAJIB berwarna HITAM atau PUTIH saja dan seragam se-tim.</li>
+              <li>Saat bertanding, ID Card pemain diserahkan ke meja. Official wajib mengenakan ID Card.</li>
+              <li>Pemain yang tidak menyerahkan ID Card dilarang bermain.</li>
+              <li>Peserta tidak memakai kostum dengan nomor punggung yang sama dalam 1 tim.</li>
             </ul>
-            
-            <h3>G. Aturan Tim & Pemain</h3>
+
+            <h3>I. WASIT DAN KOORDINATOR WASIT</h3>
             <ul>
-              <li><b>Tim</b>: Maksimal 12 pemain dan 3 official per sekolah.</li>
-              <li><b>Wajib Main (Minute Play)</b>: Seluruh pemain yang terdaftar di <i>scoresheet</i> WAJIB bermain minimal 5 menit (di Q1-Q3).</li>
-              <li><b>Hukuman Minute Play</b>: Jika ada pemain yang tidak main 5 menit (di Q1-Q3), tim akan dikenai <i>Technical Foul</i> di awal Q4 (sebanyak jumlah pemain yang melanggar).</li>
-              <li><b>Keterlambatan</b>: Toleransi 10 menit dari jadwal (3x panggilan @3 menit). Lewat dari itu dianggap kalah WO.</li>
+              <li>Wasit ditugaskan oleh pengcab PERBASI Kota Bogor.</li>
+              <li>Wasit memiliki hak dan kewajiban sesuai peraturan FIBA 2024.</li>
+              <li>Jumlah wasit per pertandingan adalah 2 orang.</li>
+              <li>Wasit tidak boleh mempunyai hubungan dengan kedua tim.</li>
             </ul>
-            
-            <h3>H. Seragam & Atribut</h3>
+
+            <h3>J. GANGGUAN</h3>
             <ul>
-              <li>Setiap tim wajib menyediakan 2 set kostum (Gelap & Terang).</li>
-              <li>Tim yang disebut <b>pertama</b> memakai kostum <b>TERANG</b>.</li>
-              <li>Tim yang disebut <b>kedua</b> memakai kostum <b>GELAP</b>.</li>
-              <li>Aksesoris (sleeve, headband, deker, dll) WAJIB berwarna <b>HITAM</b> atau <b>PUTIH</b> saja dan harus seragam se-tim.</li>
-              <li>Dilarang memakai aksesoris tubuh (anting, kalung, cincin).</li>
-              <li>Kostum wajib dimasukkan ke dalam celana.</li>
-            </ul>
-            
-            <h3>I. Wasit</h3>
-            <ul>
-              <li>Wasit ditugaskan oleh PERBASI Kota Bogor.</li>
-              <li>Setiap pertandingan dipimpin oleh 2 orang wasit.</li>
-            </ul>
-            
-            <h3>J. Tata Tertib Umum</h3>
-            <ul>
-              <li>Seluruh peserta WAJIB memakai <b>ID CARD</b> di area SMK Wikrama. Pemain tanpa ID Card dilarang bermain.</li>
-              <li>Official/Pelatih WAJIB berpakaian rapi (kaos berkerah, celana panjang, sepatu).</li>
-              <li><b>DILARANG MEROKOK</b> di seluruh area SMK Wikrama Bogor.</li>
-              <li>Panitia hanya menyediakan P3K. Cedera lanjutan ditanggung tim.</li>
+              <li>Gangguan di Q1: Pertandingan dan skor diulang.</li>
+              <li>Gangguan di Q2 - Q4 (menit ke-5): Pertandingan dilanjutkan (skor & waktu terakhir).</li>
+              <li>Gangguan di Q4 (kurang dari 5 menit): Pertandingan dianggap selesai.</li>
+              <li>Batas waktu menunggu gangguan adalah 30 menit.</li>
               <li>Keputusan panitia tidak dapat diganggu gugat.</li>
             </ul>
-            
-            <h3>K. Penonton</h3>
+
+            <h3>K. PROTES</h3>
             <ul>
-              <li>Setiap tim diharapkan membawa minimal 5 penonton.</li>
-              <li><b>Tiket Penyisihan</b>: Rp 5.000,- (dapat <i>soft drink</i>).</li>
-              <li><b>Tiket Semi-Final & Final</b>: Rp 10.000,- (dapat <i>soft drink</i>).</li>
+              <li>Diajukan tertulis, maks 30 menit setelah laga, dengan uang jaminan Rp 1.000.000,- (Uang hangus).</li>
+              <li>Pengaduan diselesaikan oleh panitia hakim.</li>
             </ul>
-            
-            <h3>L. Gangguan Pertandingan</h3>
+
+            <h3>L. SANKSI DENDA</h3>
             <ul>
-              <li><b>Terjadi di Q1</b>: Pertandingan dan skor diulang penuh.</li>
-              <li><b>Terjadi di Q2 - Q4 (menit ke-5)</b>: Lanjut dengan skor dan waktu terakhir.</li>
-              <li><b>Terjadi di Q4 (kurang dari 5 menit)</b>: Pertandingan selesai, skor terakhir dianggap hasil akhir.</li>
-              <li>Batas waktu menunggu gangguan adalah 30 menit.</li>
+              <li>Tim yang WO (tidak hadir) harus membayar denda Rp 100.000,-/pertandingan dan akan di-blacklist.</li>
             </ul>
-            
-            <h3>M. Protes</h3>
+
+            <h3>M. SANKSI PEMBUAT ONAR DAN PEMOGOKAN</h3>
             <ul>
-              <li>Dapat diajukan tertulis maksimal 30 menit setelah laga selesai.</li>
-              <li>Menyerahkan uang jaminan <b>Rp 1.000.000,-</b>. (Uang ini akan hangus, baik protes diterima maupun ditolak).</li>
+              <li>Tim yang berbuat onar dikenakan sanksi diskualifikasi dan denda Rp 1.000.000,-.</li>
+              <li>Tim yang mogok (setelah 10 menit peringatan) akan didiskualifikasi.</li>
             </ul>
-            
-            {/* ✅ BAGIAN INI DIPERBAIKI (JSX) */}
-            <h3>N. Sanksi & Denda</h3>
+
+            <h3>N. SANKSI PELAKU PENGANIAYAAN DAN PERKELAHIAN</h3>
             <ul>
-              <li><b>WO (Walk Out)</b>: Dinyatakan kalah, denda <b>Rp 100.000,-</b>, dan di-<i>blacklist</i> di Wikrama Cup berikutnya.</li>
-              <li><b>Pemogokan/Onar</b>: Tim yang mogok atau membuat onar akan didiskualifikasi dari turnamen.</li>
-              <li>
-                <b>Perkelahian/Penganiayaan</b>:
-                {/* Ini adalah <ul> di dalam <li> */}
-                <ul className="sub-list"> 
-                  <li>
-                    Pemain (individu): Dikeluarkan dari pertandingan (skorsing ditentukan panitia).
-                  </li>
-                  <li>
-                    Official: Didiskualifikasi (dilarang mendampingi tim selamanya).
-                  </li>
-                  <li>
-                    Massal: Salah satu atau kedua tim akan didiskualifikasi.
-                  </li>
-                </ul>
-              </li>
+              <li>Jika seorang pemain melakukan penganiayaan (pemain lawan/wasit), pemain dikeluarkan.</li>
+              <li>Apabila penganiayaan mengakibatkan terjadinya baku hantam massal, satu atau kedua tim didiskualifikasi.</li>
+              <li>Apabila official melakukan penganiayaan, official didiskualifikasi.</li>
+              <li>Tim yang menolak lanjut bertanding karena poin di atas dianggap mogok dan didiskualifikasi.</li>
             </ul>
-            
+
+            <h3>O. HAL-HAL LAIN</h3>
+            <ul>
+              <li>Segala sesuatu yang belum tercantum akan diatur saat Technical Meeting.</li>
+            </ul>
+
             <h3>Kontak Panitia (FAQ)</h3>
             <ul>
+              {/* ✅ URUTAN KONTAK DIUBAH */}
+              <li><b>Noer Sandy M. S.Pd</b>: 0899-7972-996 (WhatsApp)</li>
               <li><b>Satria</b>: 0831-2843-1096 (WhatsApp)</li>
-              <li><b>Noer Sandy</b>: 0899-7972-996 (WhatsApp)</li>
             </ul>
           </div>
           
@@ -199,6 +211,7 @@ function BasketDetail() {
             opacity: 0.1;
             z-index: 0;
             pointer-events: none;
+            border-radius: 50%;
         }
 
         .detail-content-wrapper {
@@ -256,6 +269,27 @@ function BasketDetail() {
           box-shadow: 0 10px 30px rgba(248, 187, 40, 0.6);
         }
 
+        .download-button {
+          display: inline-block;
+          margin-top: 15px;
+          margin-bottom: 10px;
+          padding: 10px 20px;
+          border: 2px solid #f5931c;
+          color: #f5931c;
+          background: transparent;
+          border-radius: 50px;
+          font-size: 0.9rem;
+          font-weight: bold;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .download-button:hover {
+          background: #f5931c;
+          color: #223165;
+          transform: scale(1.05);
+          box-shadow: 0 4px 15px rgba(245, 147, 28, 0.2);
+        }
+
         .detail-title {
           font-size: 2.8rem;
           font-weight: 800;
@@ -288,7 +322,6 @@ function BasketDetail() {
           margin-bottom: 20px;
         }
 
-        /* ✅ CSS DIUBAH: Menggunakan > agar tidak mempengaruhi sub-list */
         .detail-rules > ul > li {
           position: relative;
           padding-left: 25px;
@@ -298,7 +331,6 @@ function BasketDetail() {
           color: #F0F0F0;
         }
 
-        /* ✅ CSS DIUBAH: Menggunakan > agar tidak mempengaruhi sub-list */
         .detail-rules > ul > li::before {
           content: '•';
           color: #f5931c;
@@ -314,31 +346,30 @@ function BasketDetail() {
           font-weight: 600;
         }
 
-        /* ✅ CSS BARU: Untuk sub-list yang rapi */
         .detail-rules .sub-list {
           list-style: none;
-          padding-left: 15px; /* Kasih indentasi */
+          padding-left: 15px;
           margin-top: 10px;
           margin-bottom: 0;
         }
         
         .detail-rules .sub-list li {
           position: relative;
-          padding-left: 20px; /* Padding untuk bullet '○' */
+          padding-left: 20px;
           margin-bottom: 8px;
-          font-size: 0.95rem; /* Sedikit lebih kecil */
+          font-size: 0.95rem;
+          color: #F0F0F0;
+          line-height: 1.7;
         }
 
         .detail-rules .sub-list li::before {
-          content: '○'; /* Bullet lingkaran kosong */
-          color: #f5931c; /* Warna oranye */
+          content: '○';
+          color: #f5931c;
           font-size: 1.2rem;
           position: absolute;
           left: 0;
           top: 0px;
         }
-        /* --- Akhir CSS Baru --- */
-
 
         @media (max-width: 768px) {
           .detail-section {
@@ -360,7 +391,6 @@ function BasketDetail() {
           .detail-rules h3 {
             font-size: 1.4rem;
           }
-          /* ✅ CSS DIUBAH: Selektor utama */
           .detail-rules > ul > li {
             font-size: 0.95rem;
           }
