@@ -28,10 +28,8 @@ function SeniDetail() {
   };
 
   useEffect(() => {
-    // Listener untuk tombol 'kembali ke atas'
     window.addEventListener('scroll', toggleVisibility);
     
-    // Listener untuk auto-scroll (hash)
     const hash = location.hash.substring(1); 
     if (hash && refs[hash]) {
       refs[hash].current.scrollIntoView({
@@ -39,15 +37,13 @@ function SeniDetail() {
         block: 'start',
       });
     } else {
-      // Jika tidak ada hash, scroll ke atas saat pindah halaman
       window.scrollTo(0, 0);
     }
 
-    // Cleanup listener
     return () => {
       window.removeEventListener('scroll', toggleVisibility);
     };
-  }, [location, refs]); // Dependensi di-update
+  }, [location, refs]);
   // --- Akhir Logika ---
 
   return (
@@ -100,6 +96,23 @@ function SeniDetail() {
                 <li><b>Juara 1</b>: Piala, Sertifikat, dan Uang Pembinaan Rp 500.000,-</li>
                 <li><b>Juara 2</b>: Piala, Sertifikat, dan Uang Pembinaan Rp 350.000,-</li>
                 <li><b>Juara 3</b>: Piala, Sertifikat, dan Uang Pembinaan Rp 250.000,-</li>
+              </ul>
+            </div>
+          </div>
+          
+          {/* ✅ BIAYA PENDAFTARAN DITAMBAHKAN */}
+          <div className="detail-rules-block">
+            <h2 className="detail-title-secondary">Biaya Pendaftaran</h2>
+            <div className="detail-rules">
+              <ul>
+                <li>Rp 75.000,- / Kategori Lomba</li>
+                <li>
+                  <b>Bank BJB</b>
+                  <ul className="sub-list indented" style={{marginTop: '10px'}}>
+                    <li>Atas Nama: <b>Mohamad Rizal</b></li>
+                    <li>No. Rekening: <b>0149257144100</b></li>
+                  </ul>
+                </li>
               </ul>
             </div>
           </div>
@@ -199,7 +212,7 @@ function SeniDetail() {
         </div>
       </section>
 
-      {/* ✅ TOMBOL 'KEMBALI KE ATAS' (JSX) */}
+      {/* Tombol 'Kembali ke Atas' (JSX) */}
       {isVisible && (
         <button onClick={scrollToTop} className="back-to-top-button">
           ↑
@@ -225,7 +238,7 @@ function SeniDetail() {
           padding: 60px 20px;
           text-align: left;
           position: relative;
-          overflow: hidden;
+          /* ✅ overflow: hidden DIHAPUS agar bisa scroll */
         }
         
         .detail-watermark-icon {
@@ -396,7 +409,6 @@ function SeniDetail() {
            top: 0px;
         }
         
-        /* ✅ CSS BARU UNTUK TOMBOL 'KEMBALI KE ATAS' */
         .back-to-top-button {
           position: fixed;
           bottom: 30px;
@@ -421,7 +433,6 @@ function SeniDetail() {
           opacity: 1;
           transform: scale(1.1);
         }
-        /* --- Akhir CSS Baru --- */
         
         @media (max-width: 768px) {
           .detail-section {
