@@ -27,23 +27,31 @@ function SeniDetail() {
     });
   };
 
+  // ✅ DIPERBAIKI: Pisah useEffect
+
+  // Efek HANYA untuk tombol "Kembali ke Atas" (hanya jalan sekali)
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
-    
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
+  }, []); // <-- Dependensi kosong
+
+  // Efek HANYA untuk auto-scroll saat pindah halaman
+  useEffect(() => {
     const hash = location.hash.substring(1); 
     if (hash && refs[hash]) {
+      // Jika ada hash (#gitar), scroll ke elemen itu
       refs[hash].current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });
     } else {
+      // Jika TIDAK ada hash, scroll ke atas
       window.scrollTo(0, 0);
     }
-
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
-  }, [location, refs]);
+  }, [location]); // <-- Hanya bergantung pada 'location'
+  
   // --- Akhir Logika ---
 
   return (
@@ -100,7 +108,7 @@ function SeniDetail() {
             </div>
           </div>
           
-          {/* ✅ BIAYA PENDAFTARAN */}
+          {/* --- Biaya Pendaftaran --- */}
           <div className="detail-rules-block">
             <h2 className="detail-title-secondary">Biaya Pendaftaran</h2>
             <div className="detail-rules">
@@ -221,6 +229,12 @@ function SeniDetail() {
 
       {/* --- CSS --- */}
       <style>{`
+        /* CSS Baru untuk paksa scroll */
+        body, html {
+          overflow-y: auto !important;
+          height: auto !important;
+        }
+
         @keyframes gradientMove {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -238,7 +252,7 @@ function SeniDetail() {
           padding: 60px 20px;
           text-align: left;
           position: relative;
-          /* ✅ overflow: hidden DIHAPUS */
+          /* overflow: hidden; <-- DIHAPUS */
         }
         
         .detail-watermark-icon {
