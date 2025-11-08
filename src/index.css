@@ -24,3 +24,228 @@ img, iframe, video {
 	max-width: 100%;
 	height: auto;
 }
+
+/* --- CSS untuk Navbar & Hamburger Menu (Revisi Final) --- */
+
+.navbar {
+  background: #000000;
+  height: auto; /* ✅ Biarkan tinggi otomatis di mobile */
+  min-height: 74px; /* Tinggi minimum */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky; /* ✅ Tetap sticky di DESKTOP */
+  top: 0;
+  z-index: 999;
+  border-bottom: 2px solid #f5931c;
+  box-shadow: 0 4px 15px rgba(245, 147, 28, 0.2);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 74px; /* Tinggi header utama */
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none; 
+  color: #FFFFFF; 
+  font-weight: 900;
+  font-size: 1.8rem;
+}
+
+.navbar-logo-img {
+  height: 60px; 
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+.navbar-logo:hover .navbar-logo-img {
+  transform: scale(1.05);
+}
+.navbar-logo-text {
+  color: #f8bb28; 
+  transition: all 0.3s ease;
+}
+.navbar-logo:hover .navbar-logo-text {
+  color: #f5931c; 
+  text-shadow: 0 0 10px rgba(245, 147, 28, 0.5);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  height: 74px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f8bb28;
+  border-bottom: 4px solid #f8bb28;
+}
+
+.nav-link.active {
+  color: #f5931c;
+  border-bottom: 4px solid #f5931c;
+}
+
+.nav-button-item {
+  margin-left: 20px;
+}
+
+.nav-button {
+  background: linear-gradient(90deg, #f5931c, #f8bb28);
+  color: #223165 !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(245, 147, 28, 0.4);
+  text-decoration: none;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button:hover {
+  background: linear-gradient(90deg, #f8bb28, #f5931c);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(248, 187, 40, 0.6);
+  border-bottom: none;
+}
+
+.hamburger-menu {
+  display: none;
+  font-size: 2rem;
+  color: #f8bb28;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* --- Tampilan Mobile (Animasi Push-Down) --- */
+@media (max-width: 768px) {
+  
+  .navbar {
+    /* ✅ HAPUS STICKY DI MOBILE, agar bisa mendorong konten */
+    position: relative; 
+  }
+
+  .navbar-container {
+     /* ✅ Biarkan menu hamburger dan logo sejajar */
+     flex-wrap: wrap; 
+  }
+
+  .nav-menu {
+    /* ✅ Ini adalah kuncinya: menu adalah bagian dari layout */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    /* ✅ Ini adalah animasi "akordeon" (push-down) */
+    max-height: 0; /* Sembunyi, tidak ada tinggi */
+    overflow: hidden; /* Sembunyikan konten di dalamnya */
+    
+    background: #000;
+    
+    /* Transisi pada max-height */
+    transition: max-height 0.5s ease-in-out; 
+    
+    /* Hapus semua 'position: absolute', 'top', 'left' */
+  }
+
+  .nav-menu.active {
+    /* ✅ Tampilkan menu dengan tinggi penuh */
+    max-height: 100vh; /* (100vh cukup besar untuk 3 tombol) */
+    z-index: 1;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-button-item {
+    margin-left: 0;
+    padding: 15px 0;
+    height: auto;
+    background: rgba(245, 147, 28, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-button {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+  }
+
+  .nav-link {
+    width: 100%;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    border-bottom: none;
+    color: #f5931c;
+    background: rgba(245, 147, 28, 0.1);
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo-img {
+    height: 50px;
+  }
+  .navbar-logo-text {
+    font-size: 1.5rem;
+  }
+  .nav-button {
+    font-size: 1rem;
+    padding: 12px 15px;
+  }
+}
