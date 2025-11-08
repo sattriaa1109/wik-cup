@@ -100,7 +100,7 @@ function SeniDetail() {
             </div>
           </div>
           
-          {/* ✅ BIAYA PENDAFTARAN DITAMBAHKAN */}
+          {/* ✅ BIAYA PENDAFTARAN */}
           <div className="detail-rules-block">
             <h2 className="detail-title-secondary">Biaya Pendaftaran</h2>
             <div className="detail-rules">
@@ -238,7 +238,7 @@ function SeniDetail() {
           padding: 60px 20px;
           text-align: left;
           position: relative;
-          /* ✅ overflow: hidden DIHAPUS agar bisa scroll */
+          /* ✅ overflow: hidden DIHAPUS */
         }
         
         .detail-watermark-icon {
