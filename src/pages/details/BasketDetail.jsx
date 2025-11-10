@@ -21,10 +21,12 @@ function BasketDetail() {
   };
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
+    // Auto scroll ke atas saat halaman dimuat
+    window.scrollTo(0, 0); 
     return () => {
       window.removeEventListener('scroll', toggleVisibility);
     };
-  }, []);
+  }, []); // Dependensi kosong agar hanya jalan sekali saat mount
   // --- Akhir Logika ---
 
   return (
@@ -49,7 +51,7 @@ function BasketDetail() {
             </a>
           </div>
 
-          <h2 className="detail-title">Regulasi Wikrama Cup 4</h2>
+          <h2 className="detail-title">Regulasi Wikrama Fest 4</h2>
           <p className="detail-subtitle">
             Basketball Championship Tahun 2025
           </p>
@@ -72,7 +74,6 @@ function BasketDetail() {
             <h3>C. BIAYA PENDAFTARAN</h3>
             <ul>
               <li>Rp. 600.000,00/tim</li>
-              {/* ✅ INFORMASI BANK DITAMBAHKAN DI SINI */}
               <li>
                 <b>Bank BJB</b>
                 <ul className="sub-list indented" style={{marginTop: '10px'}}>
@@ -92,7 +93,7 @@ function BasketDetail() {
             <h3>E. PERSYARATAN UMUM</h3>
             <ul>
               <li>Sudah membayar uang pendaftaran sebesar Rp. 600.000/tim</li>
-              <li>Pada saat Technical Meeting, setiap tim harus sudah melengkapi persyaratan.</li>
+              <li>Pada saat Technical Meeting, setiap tim harus sudah melengkapi persyaratan kejuaraan Wikrama Fest.</li>
               <li>Surat rekomendasi dari sekolah masing-masing (bertanda tangan kepala sekolah dan berstempel sekolah asli). <b>(Di bawa saat Technical Meeting)</b></li>
               <li>Mengisi formulir pendaftaran.</li>
               <li>FC Raport semester tarakhir (sesuai tingkatan) / FC Kartu Pelajar.</li>
@@ -103,11 +104,11 @@ function BasketDetail() {
             <ul>
               <li>Keputusan panitia tidak dapat diganggu gugat.</li>
               <li>Panitia berhak menginterprestasikan peraturan sesuai persepsi panitia.</li>
-              <li>Semua peserta Wikrama Cup 4 WAJIB mengikuti semua proses acara dan rangkaian kegiatan.</li>
+              <li>Semua peserta Wikrama Fest 4 WAJIB mengikuti semua proses acara dan rangkaian kegiatan.</li>
               <li>Semua peserta WAJIB mengikuti protokol kesehatan yang sudah ditentukan.</li>
-              <li>Peserta diutamakan adalah kelas 8-9 siswa SMP sederajat tahun ajaran 2025-2026.</li>
+              <li>Peserta diutamakan adalah kelas 8-9 siswa SMP sederajat tahun ajaran 2025-2026 dengan telah memenuhi persyaratan yang ditetapkan oleh panitia Wikrama Fest.</li>
               <li>Semua tim WAJIB mengikuti pembukaan minimal diwakili 5 orang/tim. (Denda Rp 50.000/tim jika kurang).</li>
-              <li>Perwakilan tim WAJIB hadir saat Technical Meeting dengan pakaian rapih. Jika tidak hadir, dianggap menyetujui semua peraturan.</li>
+              <li>Perwakilan tim WAJIB hadir saat Technical Meeting... Jika tidak hadir, maka peserta dianggap telah memahami dan menyetujui seluruh peraturan Wikrama Fest 4</li>
               <li>Peraturan permainan yang digunakan adalah peraturan <b>FIBA 2024</b>.</li>
               <li>Semua Peserta WAJIB menggunakan ID CARD selama berada dilingkungan SMK Wikrama.</li>
               <li>Official, pelatih, dan guru pendamping WAJIB menggunakan pakaian rapih.</li>
@@ -116,7 +117,7 @@ function BasketDetail() {
             <h3>G. PERATURAN KHUSUS</h3>
             <ul>
               <li>Setiap tim maksimal 12 pemain dan 3 official.</li>
-              <li>Sistem pertandingan yang digunakan adalah sistem gugur.</li>
+              <li>Sistem pertandingan yang digunakan pada Wikrama Fest adalah sistem gugur.</li>
               <li><b>Waktu Tanding (Penyisihan-Semifinal)</b>: 4x10 menit (kotor), 2 menit terakhir Q4 waktu bersih.</li>
               <li><b>Waktu Tanding (Final)</b>: 4x10 menit (semibersih), 2 menit terakhir Q4 waktu bersih.</li>
               <li><b>Istirahat</b>: 1 menit (antar Q1-Q2 & Q3-Q4) dan 2 menit (jeda babak).</li>
@@ -163,13 +164,13 @@ function BasketDetail() {
 
             <h3>K. PROTES</h3>
             <ul>
-              <li>Diajukan tertulis, maks 30 menit setelah laga, dengan uang jaminan Rp 1.000.000,- (Uang hangus).</li>
+              <li>Protes dapat diajukan secara tertulis, maks 30 menit setelah laga, kepada pengawas pertandingan/panitia Wikrama Fest dengan uang jaminan Rp 1.000.000,- (uang hangus).</li>
               <li>Pengaduan diselesaikan oleh panitia hakim.</li>
             </ul>
 
             <h3>L. SANKSI DENDA</h3>
             <ul>
-              <li>Tim yang WO (tidak hadir) harus membayar denda Rp 100.000,-/pertandingan dan akan di-blacklist.</li>
+              <li>Tim yang WO (tidak hadir) harus membayar denda Rp 100.000,-/pertandingan dan akan di-blacklist di Wikrama Fest berikutnya.</li>
             </ul>
 
             <h3>M. SANKSI PEMBUAT ONAR DAN PEMOGOKAN</h3>
@@ -191,6 +192,7 @@ function BasketDetail() {
               <li>Segala sesuatu yang belum tercantum akan diatur saat Technical Meeting.</li>
             </ul>
 
+            {/* ✅ BAGIAN LAMPIRAN DIPERBARUI */}
             <h3>LAMPIRAN</h3>
             <div className="lampiran-container">
               <a 
@@ -201,23 +203,33 @@ function BasketDetail() {
               >
                 Unduh Formulir Pendaftaran Atlet
               </a>
+              
+              {/* Tombol IGORNAS - Sekarang Aktif */}
+              <a 
+                href="/surat-rekomendasi-igornas.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Surat Rekomendasi IGORNAS
+              </a>
+              
+              {/* Tombol Dinas Pendidikan - Sekarang Aktif */}
+              <a 
+                href="/surat-rekomendasi-dinas-pendidikan.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Rekomendasi Dinas Pendidikan
+              </a>
+              
+              {/* Tombol PERBASI - Tetap mengarah ke /pengajuan */}
               <Link 
                 to="/pengajuan"
                 className="download-button"
               >
-                Surat Rekomendasi IGORNAS 
-              </Link>
-              <Link 
-                to="/pengajuan"
-                className="download-button"
-              >
-                Rekomendasi Dinas Pendidikan 
-              </Link>
-              <Link 
-                to="/pengajuan"
-                className="download-button"
-              >
-                Rekomendasi PERBASI 
+                Rekomendasi PERBASI (Dalam Proses Pengajuan)
               </Link>
             </div>
 
@@ -240,6 +252,12 @@ function BasketDetail() {
 
       {/* --- CSS --- */}
       <style>{`
+        /* CSS Baru untuk paksa scroll */
+        body, html {
+          overflow-y: auto !important;
+          height: auto !important;
+        }
+
         @keyframes gradientMove {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -257,7 +275,7 @@ function BasketDetail() {
           padding: 60px 20px;
           text-align: left;
           position: relative;
-          overflow: hidden;
+          /* overflow: hidden; DIHAPUS */
         }
         
         .detail-watermark-icon {
@@ -421,13 +439,13 @@ function BasketDetail() {
           font-weight: 600;
         }
 
-        /* ✅ CSS Sub-list (termasuk untuk bank) */
         .detail-rules .sub-list {
           list-style: none;
           padding-left: 15px;
           margin-top: 10px;
           margin-bottom: 0;
         }
+        
         .detail-rules .sub-list li {
           position: relative;
           padding-left: 20px;
@@ -436,6 +454,7 @@ function BasketDetail() {
           color: #FFFFFF;
           line-height: 1.7;
         }
+
         .detail-rules .sub-list li::before {
           content: '○';
           color: #f5931c;
@@ -445,7 +464,6 @@ function BasketDetail() {
           top: 0px;
         }
         
-        /* Style khusus untuk list rekening bank (jika diperlukan) */
         .detail-rules .sub-list.indented > li {
           padding-left: 25px; 
           font-size: 1rem;
@@ -462,7 +480,6 @@ function BasketDetail() {
            left: 0;
            top: 0px;
         }
-        /* --- Akhir CSS --- */
         
         .back-to-top-button {
           position: fixed;

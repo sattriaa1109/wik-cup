@@ -20,6 +20,7 @@ function Navbar() {
         <NavLink to="/" className="navbar-logo" onClick={closeMobileMenu}>
           <img src="/logo-wikcup.png" alt="Wikrama Cup Logo" className="navbar-logo-img" />
           <span className="navbar-logo-text">WIKRAMA FEST 4</span>
+          
         </NavLink>
 
         {/* Tombol HAMBURGER */}
