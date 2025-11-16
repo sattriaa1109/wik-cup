@@ -1,41 +1,37 @@
-/* Global layout resets to avoid horizontal scroll and ensure consistent box sizing */
+/* --- CSS UNTUK NAVBAR (KOTAK KECIL MOBILE) --- */
+
+/* Global layout resets */
 *, *::before, *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 html, body, #root {
-	height: 100%;
+  height: 100%;
 }
-
 body {
-	margin: 0;
-	padding: 0;
-	overflow-x: hidden; /* prevent accidental horizontal scroll from 100vw/padding combos */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
 main {
-	display: block;
+  display: block;
 }
-
-/* small helper to keep images/iframes responsive */
 img, iframe, video {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
+/* --- Akhir Resets --- */
 
-/* --- CSS untuk Navbar & Hamburger Menu (Revisi Final) --- */
 
 .navbar {
   background: #000000;
-  height: auto; /* ✅ Biarkan tinggi otomatis di mobile */
-  min-height: 74px; /* Tinggi minimum */
+  height: 74px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: sticky; /* ✅ Tetap sticky di DESKTOP */
+  position: sticky;
   top: 0;
   z-index: 999;
   border-bottom: 2px solid #f5931c;
@@ -46,7 +42,7 @@ img, iframe, video {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 74px; /* Tinggi header utama */
+  height: 74px;
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
@@ -67,18 +63,22 @@ img, iframe, video {
   margin-right: 10px;
   transition: transform 0.3s ease;
 }
+
 .navbar-logo:hover .navbar-logo-img {
   transform: scale(1.05);
 }
+
 .navbar-logo-text {
   color: #f8bb28; 
   transition: all 0.3s ease;
 }
+
 .navbar-logo:hover .navbar-logo-text {
   color: #f5931c; 
   text-shadow: 0 0 10px rgba(245, 147, 28, 0.5);
 }
 
+/* --- Menu Desktop --- */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -156,41 +156,48 @@ img, iframe, video {
   z-index: 1000;
 }
 
-/* --- Tampilan Mobile (Animasi Push-Down) --- */
+
+/* --- ✅ TAMPILAN MOBILE (KOTAK KECIL KANAN ATAS) --- */
 @media (max-width: 768px) {
   
-  .navbar {
-    /* ✅ HAPUS STICKY DI MOBILE, agar bisa mendorong konten */
-    position: relative; 
-  }
-
-  .navbar-container {
-     /* ✅ Biarkan menu hamburger dan logo sejajar */
-     flex-wrap: wrap; 
-  }
-
   .nav-menu {
-    /* ✅ Ini adalah kuncinya: menu adalah bagian dari layout */
+    /* Mengambang di bawah navbar */
+    position: absolute;
+    top: 74px; /* Tepat di bawah navbar */
+    
+    /* ✅ PERUBAHAN DI SINI: Posisi di kanan */
+    right: 20px; /* Jarak 20px dari kanan */
+    left: auto; /* Hapus 'left: 0' */
+    
     display: flex;
     flex-direction: column;
-    width: 100%;
     
-    /* ✅ Ini adalah animasi "akordeon" (push-down) */
-    max-height: 0; /* Sembunyi, tidak ada tinggi */
-    overflow: hidden; /* Sembunyikan konten di dalamnya */
+    /* ✅ PERUBAHAN DI SINI: Ukuran kotak kecil */
+    width: 250px; 
     
-    background: #000;
+    height: auto; 
     
-    /* Transisi pada max-height */
-    transition: max-height 0.5s ease-in-out; 
+    background: #000000; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #f5931c; /* Beri border agar terlihat */
+    border-top: none; /* Hapus border atas */
+    border-radius: 0 0 10px 10px; /* Sudut melengkung di bawah */
+
+    /* Sembunyikan menu */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px); 
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
     
-    /* Hapus semua 'position: absolute', 'top', 'left' */
+    padding: 10px; /* Padding di dalam kotak */
   }
 
   .nav-menu.active {
-    /* ✅ Tampilkan menu dengan tinggi penuh */
-    max-height: 100vh; /* (100vh cukup besar untuk 3 tombol) */
-    z-index: 1;
+    /* Tampilkan menu */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    z-index: 1; 
   }
 
   .nav-list {
@@ -200,52 +207,43 @@ img, iframe, video {
 
   .nav-item {
     width: 100%;
-    height: 80px;
+    height: auto;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
+  .nav-link {
+    width: 100%;
+    /* ✅ PERUBAHAN DI SINI: Teks rata kiri */
+    justify-content: flex-start;
+    padding: 1rem; 
+    height: auto;
+  }
+  
+  /* Tombol "Daftar" di mobile */
   .nav-button-item {
     margin-left: 0;
-    padding: 15px 0;
+    padding: 10px; /* Samakan padding */
     height: auto;
-    background: rgba(245, 147, 28, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    background: none; 
   }
 
   .nav-button {
-    width: calc(100% - 40px);
+    width: 100%; /* Full width di dalam kotak */
     margin: 0 auto;
-    padding: 15px 20px;
-    font-size: 1.1rem;
-  }
-
-  .nav-link {
-    width: 100%;
-    justify-content: center;
-    padding: 2rem;
+    padding: 12px 15px; /* Padding tombol */
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(245, 147, 28, 0.3);
   }
   
   .nav-link:hover,
   .nav-link.active {
-    border-bottom: none;
+    border-bottom: none; 
     color: #f5931c;
     background: rgba(245, 147, 28, 0.1);
   }
 
   .hamburger-menu {
     display: block;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar-logo-img {
-    height: 50px;
-  }
-  .navbar-logo-text {
-    font-size: 1.5rem;
-  }
-  .nav-button {
-    font-size: 1rem;
-    padding: 12px 15px;
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+// Pastikan Link di-import dari react-router-dom
 import { Link } from "react-router-dom";
 
 function Kompetisi() {
@@ -30,7 +31,7 @@ function Kompetisi() {
             <div className="kompetisi-card">
               <h3>Kompetisi Seni</h3>
               <p>
-                Tunjukkan bakat musik (gitar) dan vokalmu di panggung Wikrama Cup!
+                Tunjukkan bakat musik (gitar) dan vokalmu di panggung Wikrama Fest!
               </p>
               <Link to="/kompetisi/seni" className="card-detail-button">
                 Lihat Detail
@@ -49,9 +50,64 @@ function Kompetisi() {
           >
             Daftar Sekarang Semua Kompetisi
           </a>
+
+          {/* BAGIAN LAMPIRAN BARU */}
+          <div className="lampiran-section">
+            <h3 className="lampiran-title">Dokumen Pendukung (Basket)</h3>
+            <div className="lampiran-container">
+              <a 
+                href="/surat-undangan-resmi.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Surat Undangan Resmi (SMP)
+              </a>
+              <a 
+                href="/formulir-pendaftaran-atlet.docx" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Unduh Formulir Pendaftaran Atlet
+              </a>
+              <a 
+                href="/surat-rekomendasi-igornas.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Surat Rekomendasi IGORNAS
+              </a>
+              <a 
+                href="/surat-rekomendasi-dinas-pendidikan.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Rekomendasi Dinas Pendidikan
+              </a>
+              <a 
+                href="/surat-rekomendasi-perbasi.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Rekomendasi PERBASI
+              </a>
+            </div>
+          </div>
+          {/* --- Akhir Bagian Lampiran --- */}
+
         </div>
 
         <style>{`
+          /* CSS Baru untuk paksa scroll */
+          body, html {
+            overflow-y: auto !important;
+            height: auto !important;
+          }
+
           @keyframes gradientMove {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -59,7 +115,6 @@ function Kompetisi() {
           }
           
           .kompetisi-section {
-            /* ✅ DIUBAH: Gradien hanya menggunakan warna gelap */
             background: linear-gradient(-45deg, #223165, #000000, #1a254f, #000000);
             background-size: 400% 400%;
             animation: gradientMove 15s ease infinite;
@@ -70,7 +125,7 @@ function Kompetisi() {
             text-align: center;
             min-height: calc(100vh - 74px);
             position: relative;
-            overflow: hidden;
+            /* overflow: hidden; DIHAPUS */
           }
           
           .kompetisi-decoration-top {
@@ -95,7 +150,7 @@ function Kompetisi() {
             font-size: 2.8rem;
             font-weight: 800;
             margin-bottom: 60px;
-            color: #f8bb28; /* ✅ DIUBAH: Judul menjadi kuning (Aksen) */
+            color: #f8bb28;
             position: relative;
             z-index: 2;
           }
@@ -158,14 +213,14 @@ function Kompetisi() {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: #f8bb28; /* Warna Kuning (Aksen) */
+            color: #f8bb28;
             position: relative; z-index: 1;
           }
 
           .kompetisi-card p {
             font-size: 1rem;
             line-height: 1.6;
-            color: #F0F0F0; /* ✅ DIUBAH: Warna netral putih solid */
+            color: #F0F0F0;
             margin-bottom: 30px;
             flex-grow: 1;
             position: relative; z-index: 1;
@@ -209,6 +264,55 @@ function Kompetisi() {
             box-shadow: 0 12px 35px rgba(248, 187, 40, 0.6);
           }
           
+          /* --- CSS LAMPIRAN DIPERBARUI (KECIL & WRAP) --- */
+          .lampiran-section {
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 40px;
+          }
+          
+          .lampiran-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f8bb28;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 8px rgba(248, 187, 40, 0.4);
+          }
+
+          .download-button {
+            display: inline-block;
+            padding: 8px 15px; /* Lebih kecil */
+            border: 2px solid #f5931c;
+            color: #f5931c;
+            background: transparent;
+            border-radius: 50px;
+            font-size: 0.8rem; /* Lebih kecil */
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 6px rgba(245, 147, 28, 0.4);
+            margin: 5px; /* Memberi jarak agar bisa wrap */
+          }
+          .download-button:hover {
+            background: #f5931c;
+            color: #223165;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(245, 147, 28, 0.2);
+            text-shadow: none;
+          }
+          
+          .lampiran-container {
+            display: flex;
+            flex-direction: row; /* Horizontal */
+            flex-wrap: wrap; /* Bungkus jika tidak muat */
+            justify-content: center; /* Tombol rata tengah */
+            gap: 0;
+            margin-top: 15px;
+            margin-bottom: 10px;
+          }
+          /* --- END: CSS BARU --- */
+
           @media (max-width: 768px) {
             .section-title {
               font-size: 2.2rem;
@@ -230,6 +334,12 @@ function Kompetisi() {
             .kompetisi-decoration-bottom {
                 width: 60px;
             }
+            
+            .lampiran-container .download-button {
+              width: 100%;
+              text-align: center;
+              margin: 5px 0; /* Rapi di mobile */
+            }
           }
         `}</style>
       </section>
@@ -238,20 +348,19 @@ function Kompetisi() {
       <section id="lokasi" className="maps-section">
         <h2 className="section-title-maps">Lokasi Kami</h2>
         <div className="map-container">
-<iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.0139230514087!2d106.84130407499401!3d-6.645191993349406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c89505b4c37d%3A0x307fc4a38e65fa2b!2sSMK%20Wikrama%20Bogor!5e0!3m2!1sen!2sid!4v1762262010406!5m2!1sen!2sid"
-  width="100%"
-  height="100%"
-  style={{ border: 0, borderRadius: '15px', width: '100%', height: '100%' }}
-  allowFullScreen
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-></iframe>
+          <iframe
+            src="http://googleusercontent.com/maps/google.com/0"
+            width="100%"
+            height="100%"
+            style={{ border: 0, borderRadius: '15px', width: '100%', height: '100%' }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe> 
         </div>
 
         <style>{`
           .maps-section {
-            /* ✅ DIUBAH: Gradien hanya menggunakan warna gelap */
             background: linear-gradient(-45deg, #223165, #000000, #1a254f, #000000);
             background-size: 400% 400%;
             animation: gradientMove 15s ease infinite;
@@ -268,7 +377,7 @@ function Kompetisi() {
             margin-top: 0;
             padding-top: 80px;
             margin-bottom: 60px;
-            color: #f8bb28; /* ✅ DIUBAH: Judul menjadi kuning (Aksen) */
+            color: #f8bb28;
           }
 
           .map-container {

@@ -86,9 +86,10 @@ function SeniDetail() {
             <h2 className="detail-title-secondary">Waktu & Tempat Kegiatan</h2>
             <div className="detail-rules">
               <ul>
-                <li><b>Pendaftaran (Online/Offline)</b>: 8 November – 14 November 2025</li>
-                <li><b>Technical Meeting (TM)</b>: 15 November 2025 (14.00 s.d 15.30 WIB) di SMK Wikrama</li>
-                <li><b>Pelaksanaan</b>: Sabtu, 29 November 2025 (07.30 - 17.00 WIB) di SMK Wikrama</li>
+                <li><b>Pendaftaran</b>: 8 November – 20 November 2025</li>
+                <li><b>Technical Meeting</b>: 20 November 2025 (14.00 s.d 15.30 WIB)</li>
+                <li><b>Tempat</b>: Ruang Cinema SMK Wikrama Bogor</li>
+                <li><b>Pelaksanaan</b>: Minggu, 23 sampai dengan Sabtu, 29 November 2025 (07.30 - 17.00 WIB) di SMK Wikrama</li>
               </ul>
             </div>
           </div>

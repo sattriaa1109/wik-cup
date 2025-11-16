@@ -4,29 +4,17 @@ import { Link } from 'react-router-dom';
 function BasketDetail() {
   const linkPendaftaran = "https://docs.google.com/forms/d/e/1FAIpQLSf5ApVLMORQ1lkBOekNI-82ZT0lc66GXibAGBU0_mJatFK-5Q/viewform";
 
-  // Logika untuk tombol 'Kembali ke Atas'
+  // ... (Logika 'Kembali ke Atas' tetap sama) ...
   const [isVisible, setIsVisible] = useState(false);
-  const toggleVisibility = () => {
-    if (window.scrollY > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  const toggleVisibility = () => { if (window.scrollY > 300) { setIsVisible(true); } else { setIsVisible(false); } };
+  const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
-    // Auto scroll ke atas saat halaman dimuat
     window.scrollTo(0, 0); 
     return () => {
       window.removeEventListener('scroll', toggleVisibility);
     };
-  }, []); // Dependensi kosong agar hanya jalan sekali saat mount
+  }, []);
   // --- Akhir Logika ---
 
   return (
@@ -65,8 +53,10 @@ function BasketDetail() {
             
             <h3>B. WAKTU DAN TEMPAT</h3>
             <ul>
-              <li><b>Pendaftaran</b>: 8 November – 14 November 2025</li>
-              <li><b>Technical Meeting</b>: 15 November 2025 (14.00 s.d 15.30 WIB)</li>
+              {/* ✅ PENDAFTARAN DIPERBARUI */}
+              <li><b>Pendaftaran</b>: 8 November – 20 November 2025</li>
+              {/* ✅ TM DIPERBARUI (Asumsi 1 hari sebelum acara) */}
+              <li><b>Technical Meeting</b>: 21 November 2025 (14.00 s.d 15.30 WIB)</li>
               <li><b>Pelaksanaan</b>: 22, 23 dan 29 November 2025 (07.30 - selesai)</li>
               <li><b>Tempat</b>: Lapangan SMK Wikrama Bogor</li>
             </ul>
@@ -196,6 +186,14 @@ function BasketDetail() {
             <h3>LAMPIRAN</h3>
             <div className="lampiran-container">
               <a 
+                href="/surat-undangan-resmi.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                Surat Undangan Resmi (SMP)
+              </a>
+              <a 
                 href="/formulir-pendaftaran-atlet.docx" 
                 target="_blank" 
                 rel="noopener noreferrer" 
@@ -203,8 +201,6 @@ function BasketDetail() {
               >
                 Unduh Formulir Pendaftaran Atlet
               </a>
-              
-              {/* Tombol IGORNAS - Sekarang Aktif */}
               <a 
                 href="/surat-rekomendasi-igornas.pdf" 
                 target="_blank" 
@@ -213,8 +209,6 @@ function BasketDetail() {
               >
                 Surat Rekomendasi IGORNAS
               </a>
-              
-              {/* Tombol Dinas Pendidikan - Sekarang Aktif */}
               <a 
                 href="/surat-rekomendasi-dinas-pendidikan.pdf" 
                 target="_blank" 
@@ -223,14 +217,14 @@ function BasketDetail() {
               >
                 Rekomendasi Dinas Pendidikan
               </a>
-              
-              {/* Tombol PERBASI - Tetap mengarah ke /pengajuan */}
-              <Link 
-                to="/pengajuan"
+              <a 
+                href="/surat-rekomendasi-perbasi.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
                 className="download-button"
               >
-                Rekomendasi PERBASI (Dalam Proses Pengajuan)
-              </Link>
+                Rekomendasi PERBASI
+              </a>
             </div>
 
             <h3>Kontak Panitia (FAQ)</h3>
@@ -275,7 +269,6 @@ function BasketDetail() {
           padding: 60px 20px;
           text-align: left;
           position: relative;
-          /* overflow: hidden; DIHAPUS */
         }
         
         .detail-watermark-icon {
