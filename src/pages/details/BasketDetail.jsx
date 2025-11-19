@@ -56,7 +56,7 @@ function BasketDetail() {
               {/* ✅ PENDAFTARAN DIPERBARUI */}
               <li><b>Pendaftaran</b>: 8 November – 20 November 2025</li>
               {/* ✅ TM DIPERBARUI (Asumsi 1 hari sebelum acara) */}
-              <li><b>Technical Meeting</b>: 21 November 2025 (14.00 s.d 15.30 WIB)</li>
+              <li><b>Technical Meeting</b>: 21 November 2025 (13.30 s.d 15.30 WIB)</li>
               <li><b>Pelaksanaan</b>: 22, 23 dan 29 November 2025 (07.30 - selesai)</li>
               <li><b>Tempat</b>: Lapangan SMK Wikrama Bogor</li>
             </ul>
